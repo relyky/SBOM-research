@@ -3,7 +3,7 @@ title: CVE（公共漏洞和暴露）
 type: concept
 tags: [sbom, cve, vulnerability]
 aliases: [Common Vulnerabilities and Exposures, 公共漏洞和暴露, 通用漏洞披露, CVE ID]
-sources: [raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md]
+sources: [raw/tools/Vulnerability Scanning.md, raw/tools/Grype.md, raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -24,6 +24,10 @@ CVE ID 是跨弱點資料庫與安全工具共享資料的共通名稱，也是�
 - **狀態**：`RESERVED`（已保留未公開）、`REJECTED`（不符標準）；早期的「candidate（CAN-）」制度於 2005 年終止。[^c]
 - 號段因多個編號機構而不一定連續。[^z]
 
+## 在工具中的呈現
+- Grype 掃描報告以 CVE ID 列出弱點，附嚴重度與修補版本；範例 `alpine:latest` 比對到 CVE-2024-58251、CVE-2025-46394 等 6 筆低危。[^v]
+- Grype 以 EPSS、KEV 輔助優先排序。[^g]
+
 ## 相關概念
 - [[concepts/vex]]、[[concepts/sbom]]、[[organizations/mitre]]、[[organizations/cisa]]
 
@@ -38,3 +42,5 @@ CVE ID 是跨弱點資料庫與安全工具共享資料的共通名稱，也是�
 ## 參考來源
 [^c]: [[sources/2026-10-01-wikipedia-cve]]
 [^z]: [[sources/2026-10-01-wikipedia-zh-cve]]
+[^v]: [[sources/2026-10-01-anchore-vulnerability-scanning-guide]]
+[^g]: [[sources/2026-10-01-anchore-grype-readme]]

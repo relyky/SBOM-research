@@ -3,7 +3,7 @@ title: SBOM（軟體物料清單）
 type: concept
 tags: [sbom]
 aliases: [Software Bill of Materials, 軟體物料清單, 軟體材料表]
-sources: [raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/Software supply chain.md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md]
+sources: [raw/tools/Overview of Anchore Open Source tools.md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/Software supply chain.md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -25,6 +25,7 @@ status: draft
 - **格式**：[[standards/spdx|SPDX]]（ISO/IEC 5962:2021）、[[standards/cyclonedx|CycloneDX]]（OWASP）、[[standards/swid|SWID]]。[^s4]
 - **與 VEX／CVE**：SBOM 比對 [[concepts/cve|CVE]] 弱點後，可用 [[concepts/vex|VEX]] 標示「不可利用」以降低誤報。[^a]
 - **趨勢（台灣視角，2024-02）**：容器與 Kubernetes 生態系自動附帶 SBOM（Docker 2022 推出），促成由被動更新走向主動檢驗；軟體定義萬物下，SBOM 可能成為產業共識的資安標準；建議結合 DevSecOps，每次發布自動產出。[^m]
+- **產生一次、多處消費**：Anchore 的流程是由 Syft 產生一次 SBOM，再由 Grype（弱點）與 Grant（授權）各自分析。[^o] 見 [[tools/syft-grype]]。
 - **儲存**：應集中於可被自動化系統查詢的儲存庫，而非試算表（無法自動以漏洞資料充實、難整合安全工具鏈）。[^s3]
 - **完整性**：SBOM 提供可見性，不保證完整性；需搭配 provenance／簽章。[^s3]
 
@@ -38,9 +39,10 @@ status: draft
 
 ## 開放問題
 - 與 SCA 工具、傳統資產清冊的差異（尚無來源）。
-- 在 Python / .NET / React / SQL Server 專案的產生方式（尚無來源）。
+- .NET 已有單次實測：見 [[practices/dotnet-sbom-syft-grype]]；Python / React / SQL Server 尚無來源。
 
 ## 參考來源
+[^o]: [[sources/2026-10-01-anchore-oss-overview]]
 [^a]: [[sources/2026-10-01-aqua-what-is-vex]]
 [^m]: [[sources/2026-10-01-moea-sbom-trends]]
 [^s2]: [[sources/2026-10-01-openssf-sbom-types]]

@@ -1,0 +1,144 @@
+---
+title: SBOM Generation - Getting Started
+source: https://oss.anchore.com/docs/guides/sbom/getting-started/
+author:
+published:
+created: 2026-10-01
+description: Use Syft to generate your first SBOM from container images, directories, or archives.
+tags:
+  - clippings
+---
+## What is an SBOM?
+
+A **Software Bill of Materials** (SBOM) is a **detailed list of all libraries and components** that make up software.
+
+- **For developers**, it’s crucial for tracking dependencies, identifying vulnerabilities, and ensuring license compliance.
+- **For organizations**, it provides transparency into the software supply chain to assess security risks.
+
+**[Syft](https://github.com/anchore/syft)** is a CLI tool for generating an SBOM from container images and filesystems.
+
+## Installation
+
+Syft is provided as a single compiled executable and requires no external dependencies to run. Run the command for your platform to download the latest release.
+
+```bash
+curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin
+```
+
+```bash
+brew install syft
+```
+
+```bash
+winget install Anchore.Syft
+```
+
+Check out [installation guide](https://oss.anchore.com/docs/installation/syft/) for full list of official and community-maintained packaging options.
+
+## Find packages within a container image
+
+Run `syft` against a small container image; the output will be a simple human-readable table of the installed packages found:
+
+```fallback
+syft alpine:latest
+```
+```gdscript3
+NAME                    VERSION      TYPE
+alpine-baselayout       3.6.8-r1     apk
+alpine-baselayout-data  3.6.8-r1     apk
+alpine-keys             2.5-r0       apk
+alpine-release          3.21.3-r0    apk
+apk-tools               2.14.6-r3    apk
+busybox                 1.37.0-r12   apk
+busybox-binsh           1.37.0-r12   apk
+...
+```
+
+> [!primary] Learn more
+> Syft supports more than just containers. Learn more about [Supported Scan Targets](https://oss.anchore.com/docs/guides/sbom/scan-targets/)
+
+## Create an industry-standard SBOM
+
+This command will display the human-readable table *and* write SBOMs in both **[SPDX](https://spdx.dev/)** and **[CycloneDX](https://cyclonedx.org/)** formats, the two primary industry standards.
+
+```bash
+syft alpine:latest \                 # what we're scanning
+  -o table \                         # a human-readable table to stdout
+  -o spdx-json=alpine.spdx.json \    # SPDX-JSON formatted SBOM to a file
+  -o cyclonedx-json=alpine.cdx.json  # CycloneDX-JSON formatted SBOM to a file
+```
+
+The same table will be displayed, and two SBOM files will be created in the current directory.
+
+> [!primary] Learn more
+> Syft supports multiple SBOM output formats, find out more about [Output Formats](https://oss.anchore.com/docs/guides/sbom/formats/).
+
+### Examine the SBOM file contents
+
+We can use [`jq`](https://jqlang.org/) to extract specific package data from the SBOM files (by default Syft outputs JSON on a single line, but you can enable pretty-printing with the `SYFT_FORMAT_PRETTY=true` environment variable). Both formats structure package information differently:
+
+**SPDX format:**
+
+```bash
+jq '.packages[].name' alpine.spdx.json
+```
+
+**CycloneDX format:**
+
+```bash
+jq '.components[].name' alpine.cdx.json
+```
+
+Both commands show the packages that Syft found in the container image:
+
+```text
+"alpine-baselayout"
+"alpine-baselayout-data"
+"alpine-keys"
+"alpine-release"
+"apk-tools"
+"busybox"
+"busybox-binsh"
+...
+```
+
+By default, Syft shows only software visible in the final container image (the “squashed” representation). To include software from all image layers, regardless of its presence in the final image, use `--scope all-layers`:
+
+```bash
+syft <image> --scope all-layers
+```
+
+> [!primary] More JSON examples
+> For more examples of working with Syft’s JSON output using jq, see the [jq recipes](https://oss.anchore.com/docs/guides/sbom/json/#jq-recipes).
+
+## FAQ
+
+**Does Syft need internet access?**
+
+Only for downloading container images. By default, scanning works offline, but Syft can download supplemental information from online sources when enabled with the `--enrich` option.
+
+**What about private container registries?**
+
+Syft supports authentication for private registries. See [Private Registries](https://oss.anchore.com/docs/guides/private-registries/).
+
+**Can I use Syft in CI/CD pipelines?**
+
+Absolutely! Syft is designed for automation. Generate SBOMs during builds and scan them for vulnerabilities.
+
+**What data does Syft send externally?**
+
+Nothing. Syft runs entirely locally and doesn’t send any data to external services.
+
+## Next steps
+
+> [!success] Continue the guide
+> **Next**: Learn about all the different [Supported Scan Targets](https://oss.anchore.com/docs/guides/sbom/scan-targets/) Syft can analyze –from container images to local directories and archives.
+
+Now that you’ve generated your first SBOM, here are additional resources:
+
+- **Scan for vulnerabilities**: Use [Grype](https://oss.anchore.com/docs/guides/vulnerability/getting-started/) to find security issues in your SBOMs
+- **Check licenses**: Learn about [License Scanning](https://oss.anchore.com/docs/guides/license/getting-started/) to understand dependency licenses
+- **Customize output**: Explore different [Output Formats](https://oss.anchore.com/docs/guides/sbom/formats/) for various tools and workflows
+- **Query SBOM data**: Master [Working with Syft JSON](https://oss.anchore.com/docs/guides/sbom/json/) for advanced data extraction
+
+Last modified September 29, 2026: [chore(docs): update generated documentation (#286) (14fbbb4)](https://github.com/anchore/oss-docs/commit/14fbbb46eb4b72237cc35cb2a1cbea29e25a1ff5)

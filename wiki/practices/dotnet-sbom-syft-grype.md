@@ -1,0 +1,54 @@
+---
+title: 以 syft + grype 為 .NET 專案產生 SBOM 並掃描漏洞
+type: practice
+tags: [sbom, practice, dotnet, syft, grype]
+sources: [raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
+created: 2026-10-01
+updated: 2026-10-01
+status: draft
+---
+
+# 以 syft + grype 為 .NET 專案產生 SBOM 並掃描漏洞
+
+> 本頁依使用者 2026-10-01 的單次實測整理（syft 1.52.0、grype 0.119.0），結論僅限該專案，尚未跨專案驗證。
+
+## 目標
+為 .NET 專案產出 CycloneDX SBOM，並比對已知弱點；產物貼近實際部署內容。[^p]
+
+## 適用情境
+- .NET 應用程式，已有 `dotnet publish` 產物（含 `*.deps.json`）。[^p]
+- 對應 [[concepts/sbom-types|SBOM 類型]]：掃描發佈產物屬於建置後分析（Analyzed 類）（對照分類為本庫推論，待驗證）。
+
+## 流程步驟
+1. 安裝並確認版本：`winget install Anchore.Syft`、`winget install Anchore.Grype`，重開終端機讓 PATH 生效。[^p]
+2. 只掃發佈產物並指定名稱與版本（版本可取自 `publish/AsvtQUO.deps.json`）：[^p]
+   ```bash
+   syft dir:publish --source-name AsvtQUO --source-version 1.7.14-release -o cyclonedx-json=publish.sbom.cdx.json
+   ```
+3. 確認弱點資料庫：`grype db status`，必要時 `grype db update`。[^p]
+4. 掃描 SBOM：`grype sbom:publish.sbom.cdx.json -o table`；需留存報告則 `-o json > ...`。[^p]
+5. 檢視 JSON：`matches` 為比對結果、`ignoredMatches` 為被忽略項；兩者皆空即無已知弱點。[^p]
+
+## 角色與責任
+未定（來源為個人實測；導入時需明定由誰在 CI 產生、誰審閱結果）。
+
+## 使用工具
+- [[tools/syft-grype]]
+
+## 檢核清單
+- [ ] 只掃發佈產物，或用 `--exclude` 排除 `bin/`、`obj/`、`publish/` 的重複來源
+- [ ] 設定 `--source-name` 與 `--source-version`，避免警告與以路徑推導 ID
+- [ ] 記錄工具版本與弱點資料庫建置時間（本例 schema v6.1.9、built 2026-09-30）
+- [ ] 確認 SBOM 內元件皆有 purl；清點無 purl 元件
+- [ ] 保存 SBOM 與掃描結果
+
+## 常見陷阱
+- 掃整個專案目錄：1365 個元件，含重複計算；只掃發佈產物：176 個。[^p]
+- grype 只比對有 purl 的套件，無 purl 的元件與 .NET 執行環境本身不在範圍；0 漏洞不等於安全。[^p]
+- 實際 SBOM 檔：CycloneDX 1.7、170 個 `library`（皆 `pkg:nuget`）、6 個 `application`；各元件帶 CPE 與 `syft:*` 屬性。（本庫對附檔的直接檢視）[^p]
+
+## 業界案例
+（尚無）
+
+## 參考來源
+[^p]: [[sources/2026-10-01-syft-grype-dotnet-sample]]

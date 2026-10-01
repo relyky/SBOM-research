@@ -3,7 +3,7 @@ title: VEX（漏洞可利用性交換）
 type: concept
 tags: [sbom, vex, vulnerability]
 aliases: [Vulnerability Exploitability eXchange]
-sources: [raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md]
+sources: [raw/tools/Grype.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -22,6 +22,7 @@ status: draft
 - **三種實作**：OpenVEX、CSAF VEX、CycloneDX VEX；語法不同，可傳達相同基本資訊。[^a]
 - **CycloneDX VEX 範例**：以 `vulnerabilities[].analysis` 描述；範例為 `state: not_affected`、`justification: code_not_reachable`、`response: [will_not_fix, update]`。`affects.ref` 需對應 SBOM 的 serialNumber、version 與 bom-ref（如 purl）。[^a]
 - **流程**：先產 SBOM，再撰寫 VEX，最後餵給掃描器過濾，例如 [[tools/trivy|Trivy]] 的 `--vex`。[^a]
+- **掃描器支援**：[[tools/trivy|Trivy]] 以 `--vex` 套用；[[tools/syft-grype|Grype]] 支援 OpenVEX 以過濾與補強結果。[^g]
 - **分享**：Aqua 的 VEX Hub 是集中儲存與下載 VEX attestation 的儲存庫。[^a]
 - **類型脈絡**：CISA 認為 VEX 的進展可能促成新的 [[concepts/sbom-types|SBOM 類型]]。[^t]
 
@@ -39,3 +40,4 @@ status: draft
 ## 參考來源
 [^a]: [[sources/2026-10-01-aqua-what-is-vex]]
 [^t]: [[sources/2026-10-01-openssf-sbom-types]]
+[^g]: [[sources/2026-10-01-anchore-grype-readme]]
