@@ -2,7 +2,7 @@
 title: SBOM 研究總覽
 type: overview
 tags: [sbom, overview]
-sources: [raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/standards/Software Identification (SWID) Tagging.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md, raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -22,12 +22,19 @@ status: draft
 7. 在 Python / .NET / React(TypeScript) / 容器專案中，如何在 CI/CD 自動產出並管理 SBOM？
 
 ## 目前論點
-（截至 2026-10，基於 4 份業界／二手來源，尚無標準與法規一手資料，論點僅為初步。）
+（截至 2026-10，基於 9 份來源（僅 NIST SWID 頁為官方一手，其餘為業界／二手），尚無法規與規格一手資料，論點僅為初步。）
 
 1. **SBOM 是供應鏈透明度的基礎，但非完整性保證**：它列出元件，需搭配 provenance／簽章才能驗證完整性。[^a]
 2. **類型決定用途**：CISA 定義 Design / Source / Build / Analyzed / Deployed / Runtime 六類，產生方式不同，涵蓋與限制各異。見 [[concepts/sbom-types]]。[^b]
 3. **政策驅動明確，實務落後**：EO 14028 與 NTIA 最低要素確立自動化等要求，但開源專案採用率與工具準確度仍有明顯缺口（如僅約 0.56% 熱門 GitHub 儲存庫含符合政策的 SBOM）。見 [[regulations/eo-14028]]、[[concepts/sbom]]。[^a]
 4. **交換層面已有慣例**：JSON 為通用格式，檔名採「製品檔名 + `.cdx.json`／`.spdx.json`」。見 [[practices/sbom-file-naming]]。[^c]
+5. **SBOM 要搭配弱點脈絡才有用**：以 [[concepts/cve|CVE]] 為識別碼比對弱點，再用 [[concepts/vex|VEX]]（OpenVEX／CSAF／CycloneDX）標示不可利用者，可降低誤報；[[tools/trivy|Trivy]] 已能串起流程。[^d]
+6. **三種格式的地位**：[[standards/spdx|SPDX]]（ISO/IEC 5962）、[[standards/swid|SWID]]（ISO/IEC 19770-2，偏已安裝軟體清冊）、[[standards/cyclonedx|CycloneDX]]（OWASP，專為 SBOM 設計）。NIST 一手頁指出 SWID 由 ISO 定義、NIST 推廣，與二手「NIST 開發」說法有出入，已於該頁標示。[^e]
+7. **台灣視角（2024-02）**：趨勢為容器與 K8s 自動附帶 SBOM、結合 DevSecOps 每次發布自動產出；官方法規仍缺一手來源。[^f]
+
+[^d]: [[sources/2026-10-01-aqua-what-is-vex]]
+[^e]: [[sources/2026-10-01-nist-swid-tagging]]
+[^f]: [[sources/2026-10-01-moea-sbom-trends]]
 
 [^a]: [[sources/2026-10-01-wikipedia-software-supply-chain]]
 [^b]: [[sources/2026-10-01-openssf-sbom-types]]

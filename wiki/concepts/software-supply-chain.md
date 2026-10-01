@@ -3,7 +3,7 @@ title: 軟體供應鏈
 type: concept
 tags: [sbom, supply-chain]
 aliases: [Software supply chain, 軟體供應鏈安全]
-sources: [raw/industry/Software supply chain.md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md]
+sources: [raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/Software supply chain.md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -16,6 +16,8 @@ status: draft
 
 ## 為什麼重要
 - 開源占比高：Synopsys 2024 分析 96% 商用程式碼庫含開源；Linux Foundation 2022 報告典型程式碼庫 70–90% 為開源元件。[^s3]
+- Gartner 資料（經資策會 MIC 引用）稱 90% 企業仰賴開源軟體作為開發套件；與上述兩項為不同統計口徑，並列參考而非矛盾。[^m]
+- 觸發政策的事件：SolarWinds（2020-12）、Colonial Pipeline（2021-05）、Log4j（2021-12），促成 [[regulations/eo-14028]]。[^m]
 - 攻擊上游元件可一次影響所有下游：SolarWinds（2020，逾 18,000 組織安裝惡意更新）、NotPetya（2017）、Kaseya（2021）、XZ Utils 後門（2024）。[^s3]
 - Heartbleed、Shellshock（2014）與 Log4Shell（2021）顯示需要含 SCA 的漏洞管理。[^s3]
 
@@ -40,3 +42,4 @@ status: draft
 ## 參考來源
 [^s3]: [[sources/2026-10-01-wikipedia-software-supply-chain]]
 [^s4]: [[sources/2026-10-01-wikipedia-zh-software-supply-chain]]
+[^m]: [[sources/2026-10-01-moea-sbom-trends]]

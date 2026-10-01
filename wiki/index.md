@@ -11,30 +11,35 @@ updated: 2026-10-01
 > LLM 回答問題時先讀本頁。每次 ingest 後更新。格式：`- [[路徑|名稱]] — 一句話摘要（來源數，狀態）`
 
 ## 總覽
-- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（0，stub）
+- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（9，draft）
 - [[log|知識庫紀錄]] — 所有 ingest / query / lint 的時序紀錄
 
 ## 概念 Concepts
-- [[concepts/sbom|SBOM]] — 軟體物料清單核心概念、用途、採用現況（來源 3 份，draft）
+- [[concepts/sbom|SBOM]] — 軟體物料清單核心概念、用途、採用現況與趨勢（來源 5 份，draft）
 - [[concepts/sbom-types|SBOM 類型]] — CISA 定義的六種 SBOM 類型與優缺點（來源 2 份，draft）
 - [[concepts/software-supply-chain|軟體供應鏈]] — 定義、攻擊案例與三大安全屬性（來源 2 份，draft）
-- [[concepts/vex|VEX]] — 漏洞可利用性交換，與 SBOM 搭配使用（來源 1 份，stub）
+- [[concepts/vex|VEX]] — 漏洞可利用性交換，三種實作與 Trivy 流程（來源 2 份，draft）
+- [[concepts/cve|CVE]] — 公共漏洞編號系統、CNA 制度與資金風險（來源 2 份，draft）
 
 ## 標準與格式 Standards
-- [[standards/spdx|SPDX]] — SBOM 格式，ISO/IEC 5962:2021（來源 2 份，stub）
-- [[standards/cyclonedx|CycloneDX]] — OWASP 提出的 SBOM 格式（來源 2 份，stub）
-- [[standards/swid|SWID]] — 中文維基列為三種格式之一，歸屬待驗證（來源 1 份，stub）
+- [[standards/spdx|SPDX]] — SBOM 格式，ISO/IEC 5962（來源 3 份，stub）
+- [[standards/cyclonedx|CycloneDX]] — OWASP 提出的 SBOM 格式，支援 VEX（來源 4 份，stub）
+- [[standards/swid|SWID]] — ISO/IEC 19770-2 軟體識別標籤，NIST 推廣（來源 3 份，draft）
 
 ## 工具 Tools
-（尚無）
+- [[tools/trivy|Trivy]] — Aqua 開源掃描器，可產 SBOM 並套用 VEX（來源 1 份，stub）
+- [[tools/syft-grype|Syft / Grype]] — anchore 開源 SBOM 產生與弱點掃描工具（來源 1 份，stub）
 
 ## 法規與政策 Regulations
-- [[regulations/eo-14028|EO 14028]] — 美國 2021 年行政命令，催生 SBOM 最低要素（來源 2 份，stub）
-- [[regulations/ntia-minimum-elements|NTIA 最低要素]] — 資料欄位、自動化支援、實務流程三類（來源 2 份，stub）
+- [[regulations/eo-14028|EO 14028]] — 美國 2021 年行政命令，催生 SBOM 最低要素（來源 3 份，stub）
+- [[regulations/ntia-minimum-elements|NTIA 最低要素]] — 三大類與七項資料欄位（來源 3 份，draft）
 
 ## 組織 Organizations
 - [[organizations/openssf|OpenSSF]] — SBOM Catalog 發布者（來源 2 份，stub）
-- [[organizations/cisa|CISA]] — 發布 SBOM 類型指引的美國機關（來源 1 份，stub）
+- [[organizations/cisa|CISA]] — 發布 SBOM 類型指引的美國機關（來源 2 份，stub）
+- [[organizations/nist|NIST]] — 推廣 SWID，EO 14028 下訂定指引（來源 2 份，stub）
+- [[organizations/ntia|NTIA]] — 發布 SBOM 最低要素、提出 VEX（來源 3 份，stub）
+- [[organizations/mitre|MITRE]] — 營運 CVE 系統（來源 2 份，stub）
 
 ## 實務流程 Practices
 - [[practices/sbom-file-naming|SBOM 檔案命名慣例]] — 製品檔名加 `.cdx.json`／`.spdx.json` 等副檔名（來源 1 份，draft）
@@ -44,6 +49,11 @@ updated: 2026-10-01
 - [[sources/2026-10-01-openssf-sbom-types|SBOM 文件類型（CISA）]] — 官方指引轉載
 - [[sources/2026-10-01-wikipedia-software-supply-chain|Wikipedia：Software supply chain]] — 二手百科
 - [[sources/2026-10-01-wikipedia-zh-software-supply-chain|維基百科：軟體供應鏈]] — 二手百科（繁中）
+- [[sources/2026-10-01-nist-swid-tagging|NIST：SWID Tagging]] — 官方一手
+- [[sources/2026-10-01-aqua-what-is-vex|Aqua：What Is VEX]] — 廠商教學文章
+- [[sources/2026-10-01-moea-sbom-trends|資策會 MIC：SBOM 發展趨勢]] — 產業研究（台灣）
+- [[sources/2026-10-01-wikipedia-cve|Wikipedia：CVE]] — 二手百科
+- [[sources/2026-10-01-wikipedia-zh-cve|維基百科：公共漏洞和暴露]] — 二手百科（繁中）
 
 ## 分析 Analyses
 （尚無）

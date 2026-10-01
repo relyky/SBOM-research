@@ -21,3 +21,9 @@ updated: 2026-10-01
 - 新增：[[concepts/sbom-types]]、[[concepts/software-supply-chain]]、[[practices/sbom-file-naming]]、[[regulations/eo-14028]]、[[regulations/ntia-minimum-elements]]、[[organizations/openssf]]、[[organizations/cisa]]、[[standards/swid]]
 - 更新：[[concepts/sbom]]、[[concepts/vex]]、[[standards/spdx]]、[[standards/cyclonedx]]、[[overview]]、[[index]]
 - 備註：無直接矛盾；SWID「由 NIST 提出」僅見中文維基，已標待驗證。法規／標準頁僅有二手來源，需補一手資料。
+
+## [2026-10-01] ingest | 第二批 5 份來源（NIST SWID、Aqua VEX、資策會 SBOM 趨勢、CVE 中英文）
+- 新增：[[sources/2026-10-01-nist-swid-tagging]]、[[sources/2026-10-01-aqua-what-is-vex]]、[[sources/2026-10-01-moea-sbom-trends]]、[[sources/2026-10-01-wikipedia-cve]]、[[sources/2026-10-01-wikipedia-zh-cve]]
+- 新增：[[concepts/cve]]、[[tools/trivy]]、[[tools/syft-grype]]、[[organizations/mitre]]、[[organizations/nist]]、[[organizations/ntia]]
+- 更新：[[standards/swid]]（stub→draft）、[[concepts/vex]]（stub→draft）、[[regulations/ntia-minimum-elements]]（補七項欄位）、[[regulations/eo-14028]]、[[concepts/sbom]]、[[concepts/software-supply-chain]]、[[standards/spdx]]、[[standards/cyclonedx]]、[[organizations/cisa]]、[[overview]]、[[index]]
+- 備註：矛盾已標示——[[standards/swid]]（NIST 一手頁稱 ISO 定義、NIST 推廣，MIC／中文維基稱 NIST 開發）；[[organizations/mitre]]（兩版維基的 FFRDC 名稱不同）。MIC 稱 NTIA「要求」三種格式之一，用語待對照原文。
