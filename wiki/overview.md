@@ -2,10 +2,10 @@
 title: SBOM 研究總覽
 type: overview
 tags: [sbom, overview]
-sources: []
+sources: [raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
 created: 2026-10-01
 updated: 2026-10-01
-status: stub
+status: draft
 ---
 
 # SBOM 研究總覽
@@ -22,7 +22,16 @@ status: stub
 7. 在 Python / .NET / React(TypeScript) / 容器專案中，如何在 CI/CD 自動產出並管理 SBOM？
 
 ## 目前論點
-（尚無來源。待第一批 ingest 後由 LLM 撰寫。）
+（截至 2026-10，基於 4 份業界／二手來源，尚無標準與法規一手資料，論點僅為初步。）
+
+1. **SBOM 是供應鏈透明度的基礎，但非完整性保證**：它列出元件，需搭配 provenance／簽章才能驗證完整性。[^a]
+2. **類型決定用途**：CISA 定義 Design / Source / Build / Analyzed / Deployed / Runtime 六類，產生方式不同，涵蓋與限制各異。見 [[concepts/sbom-types]]。[^b]
+3. **政策驅動明確，實務落後**：EO 14028 與 NTIA 最低要素確立自動化等要求，但開源專案採用率與工具準確度仍有明顯缺口（如僅約 0.56% 熱門 GitHub 儲存庫含符合政策的 SBOM）。見 [[regulations/eo-14028]]、[[concepts/sbom]]。[^a]
+4. **交換層面已有慣例**：JSON 為通用格式，檔名採「製品檔名 + `.cdx.json`／`.spdx.json`」。見 [[practices/sbom-file-naming]]。[^c]
+
+[^a]: [[sources/2026-10-01-wikipedia-software-supply-chain]]
+[^b]: [[sources/2026-10-01-openssf-sbom-types]]
+[^c]: [[sources/2026-10-01-openssf-sbom-naming]]
 
 ## 研究路線圖（建議蒐集的來源）
 以下為建議放入 `raw/` 的一手資料，ingest 後打勾：
