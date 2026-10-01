@@ -2,7 +2,7 @@
 title: SBOM 檔案命名慣例
 type: practice
 tags: [sbom, practice, naming, openssf]
-sources: [raw/tools/SBOM Generation.md, raw/tools/syft-grype.sample.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/tools/sbom-tool.md, raw/tools/SBOM Generation.md, raw/tools/syft-grype.sample.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -38,7 +38,7 @@ status: draft
 
 ## 使用工具
 - 本來源未提及工具。可用 [[tools/syft-grype|Syft]] 以 `-o cyclonedx-json=<檔名>`、`-o spdx-json=<檔名>` 指定輸出檔名；[[standards/cyclonedx]]、[[standards/spdx]] 兩頁列有生態系工具。[^s5]
-- 注意：Syft 官方範例（`alpine.cdx.json`）與使用者實測（`publish.sbom.cdx.json`）的檔名都未採本慣例的「製品完整檔名 + `.cdx.json`」。本慣例僅針對隨發布製品散布的 Source／Build SBOM，內部掃描檔未必適用；若要對外隨 release 發布，需自行改名。[^s5][^s6]
+- 注意：Syft 官方範例（`alpine.cdx.json`）與使用者實測（`publish.sbom.cdx.json`）的檔名都未採本慣例的「製品完整檔名 + `.cdx.json`」。本慣例僅針對隨發布製品散布的 Source／Build SBOM，內部掃描檔未必適用；若要對外隨 release 發布，需自行改名。[^s5][^s6] [[tools/microsoft-sbom-tool|Microsoft sbom-tool]] 預設輸出到 `<drop path>\_manifest\spdx_2.2\manifest.spdx.json`，同樣不符。[^s7]
 
 ## 檢核清單
 - [ ] SBOM 檔名以製品完整檔名開頭
@@ -56,3 +56,4 @@ status: draft
 [^s1]: [[sources/2026-10-01-openssf-sbom-naming]]
 [^s5]: [[sources/2026-10-01-anchore-sbom-generation-guide]]
 [^s6]: [[sources/2026-10-01-syft-grype-dotnet-sample]]
+[^s7]: [[sources/2026-10-01-microsoft-sbom-tool]]

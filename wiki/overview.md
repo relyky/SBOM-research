@@ -2,7 +2,7 @@
 title: SBOM 研究總覽
 type: overview
 tags: [sbom, overview]
-sources: [raw/tools/Overview of Anchore Open Source tools.md, raw/tools/Syft.md, raw/tools/Grype.md, raw/tools/SBOM Generation.md, raw/tools/Vulnerability Scanning.md, raw/tools/syft-grype.sample.md, raw/standards/Software Identification (SWID) Tagging.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md, raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/tools/sbom-tool.md, raw/tools/Overview of Anchore Open Source tools.md, raw/tools/Syft.md, raw/tools/Grype.md, raw/tools/SBOM Generation.md, raw/tools/Vulnerability Scanning.md, raw/tools/syft-grype.sample.md, raw/standards/Software Identification (SWID) Tagging.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md, raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -22,7 +22,7 @@ status: draft
 7. 在 Python / .NET / React(TypeScript) / 容器專案中，如何在 CI/CD 自動產出並管理 SBOM？
 
 ## 目前論點
-（截至 2026-10，基於 15 份來源（NIST SWID 頁與 Anchore 官方文件為一手，另含 1 份使用者實測，其餘為業界／二手），尚無法規與規格一手資料，論點僅為初步。）
+（截至 2026-10，基於 16 份來源（NIST SWID 頁與 Anchore 官方文件為一手，另含 1 份使用者實測，其餘為業界／二手），尚無法規與規格一手資料，論點僅為初步。）
 
 1. **SBOM 是供應鏈透明度的基礎，但非完整性保證**：它列出元件，需搭配 provenance／簽章才能驗證完整性。[^a]
 2. **類型決定用途**：CISA 定義 Design / Source / Build / Analyzed / Deployed / Runtime 六類，產生方式不同，涵蓋與限制各異。見 [[concepts/sbom-types]]。[^b]
@@ -31,8 +31,10 @@ status: draft
 5. **SBOM 要搭配弱點脈絡才有用**：以 [[concepts/cve|CVE]] 為識別碼比對弱點，再用 [[concepts/vex|VEX]]（OpenVEX／CSAF／CycloneDX）標示不可利用者，可降低誤報；[[tools/trivy|Trivy]] 已能串起流程。[^d]
 6. **三種格式的地位**：[[standards/spdx|SPDX]]（ISO/IEC 5962）、[[standards/swid|SWID]]（ISO/IEC 19770-2，偏已安裝軟體清冊）、[[standards/cyclonedx|CycloneDX]]（OWASP，專為 SBOM 設計）。NIST 一手頁指出 SWID 由 ISO 定義、NIST 推廣，與二手「NIST 開發」說法有出入，已於該頁標示。[^e]
 7. **.NET 落地已有初步實測**：以 syft 掃描發佈產物（176 個 NuGet 元件）比掃整個目錄（1365 個，含重複）貼近實際部署；grype 只能比對有 purl 的元件，0 漏洞不代表無風險。見 [[practices/dotnet-sbom-syft-grype]]。[^g]
-8. **台灣視角（2024-02）**：趨勢為容器與 K8s 自動附帶 SBOM、結合 DevSecOps 每次發布自動產出；官方法規仍缺一手來源。[^f]
+8. **.NET 生態系至少有兩條工具路線**：Anchore Syft（CycloneDX／SPDX，掃出貨資料夾）與 Microsoft sbom-tool（僅 SPDX 2.2／3.0，掃 `*.csproj` 並雜湊出貨檔，另可驗證）。兩者元件清單是否一致尚未實測。見 [[tools/microsoft-sbom-tool]]。[^h]
+9. **台灣視角（2024-02）**：趨勢為容器與 K8s 自動附帶 SBOM、結合 DevSecOps 每次發布自動產出；官方法規仍缺一手來源。[^f]
 
+[^h]: [[sources/2026-10-01-microsoft-sbom-tool]]
 [^g]: [[sources/2026-10-01-syft-grype-dotnet-sample]]
 [^d]: [[sources/2026-10-01-aqua-what-is-vex]]
 [^e]: [[sources/2026-10-01-nist-swid-tagging]]
@@ -58,7 +60,7 @@ status: draft
 - [ ] 台灣相關規範（如資安署/數位發展部、金管會之供應鏈資安要求）
 
 **工具**（→ `raw/tools/`）
-- [ ] Syft / Grype（已 ingest 官方文件與實測）、Trivy（僅二手）、cdxgen、Microsoft sbom-tool、CycloneDX 各語言外掛
+- [ ] Syft / Grype（已 ingest 官方文件與實測）、Microsoft sbom-tool（已 ingest 官方 README）、Trivy（僅二手）、cdxgen、CycloneDX 各語言外掛
 - [ ] OWASP Dependency-Track、GUAC
 - [ ] Sigstore / in-toto（簽章與證明）
 

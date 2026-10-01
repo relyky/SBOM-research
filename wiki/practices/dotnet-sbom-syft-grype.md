@@ -2,7 +2,7 @@
 title: 以 syft + grype 為 .NET 專案產生 SBOM 並掃描漏洞
 type: practice
 tags: [sbom, practice, dotnet, syft, grype]
-sources: [raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
+sources: [raw/tools/sbom-tool.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
@@ -29,6 +29,9 @@ status: draft
 4. 掃描 SBOM：`grype sbom:publish.sbom.cdx.json -o table`；需留存報告則 `-o json > ...`。[^p]
 5. 檢視 JSON：`matches` 為比對結果、`ignoredMatches` 為被忽略項；兩者皆空即無已知弱點。[^p]
 
+## 替代方案
+- [[tools/microsoft-sbom-tool|Microsoft sbom-tool]]：以 `-bc` 掃 `*.csproj` 等專案檔、`-b` 雜湊出貨檔案，輸出 SPDX 2.2／3.0，可作為 .NET 工具安裝並含 validate。與 syft 的元件清單是否一致，尚未實測。[^t]
+
 ## 角色與責任
 未定（來源為個人實測；導入時需明定由誰在 CI 產生、誰審閱結果）。
 
@@ -52,3 +55,4 @@ status: draft
 
 ## 參考來源
 [^p]: [[sources/2026-10-01-syft-grype-dotnet-sample]]
+[^t]: [[sources/2026-10-01-microsoft-sbom-tool]]
