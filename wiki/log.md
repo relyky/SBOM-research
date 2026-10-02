@@ -71,3 +71,11 @@ updated: 2026-10-01
 - 新增：[[sources/2026-10-02-retirejs-website]]、[[sources/2026-10-02-retirejs-repo]]、[[tools/retire-js]]
 - 更新：[[standards/cyclonedx]]（補 Retire.js 支援的 1.4／1.6／1.7 與 `_VEX` 變體）、[[overview]]（新增論點 10、路線圖）、[[index]]
 - 備註：矛盾——網站列 Firefox 擴充為正式組成，README 標為 deprecated，已於工具頁以 callout 標示。網站漏洞表約 730 列，筆數為粗略解析，未逐筆 ingest。
+
+## [2026-10-02] lint | 第三次健康檢查（46 頁）
+- 結果：frontmatter 完整、無孤兒頁、無失效 wikilink、`sources` 路徑皆存在、raw 檔案皆已被引用、index 來源數與 frontmatter 一致
+- 發現：[[sources/2026-10-02-retirejs-website]] 稱漏洞表「約八成篇幅」，實際近乎全文；[[concepts/sbom]] 的「與 SCA 差異」仍無來源；purl、SCA、OWASP 等被多頁提及但無專頁
+- 備註：本次僅回報，未修改
+
+## [2026-10-02] lint | 修正第三次健康檢查的問題
+- 處理：[[sources/2026-10-02-retirejs-website]] 的「約八成篇幅」改為「幾乎全文」

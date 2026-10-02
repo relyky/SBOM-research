@@ -22,7 +22,7 @@ status: draft
 ## 重點摘要
 1. 目的：偵測網頁與 Node.js 應用程式使用「含已知漏洞版本」的 JavaScript 函式庫；引用 OWASP Top 10 A06:2021（Vulnerable and Outdated Components）。[^w]
 2. 網站列出四個組成：命令列掃描器、Chrome 擴充套件、Firefox 擴充套件、Burp／ZAP 外掛。[^w]
-3. 約八成篇幅是「目前偵測的漏洞」表格，欄位為函式庫、起始版本、截止版本、連結、摘要（約 730 列資料）。[^w]
+3. 幾乎全文都是「目前偵測的漏洞」表格，欄位為函式庫、起始版本、截止版本、連結、摘要（約 730 列資料）。[^w]
 4. 漏洞連結以 GitHub Advisory（GHSA）為主（約 583 筆），其餘為 NVD 的 CVE（約 64 筆）。[^w]
 5. 網站完全未提及 SBOM 產生功能。[^w]
 
