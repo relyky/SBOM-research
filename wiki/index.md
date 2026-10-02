@@ -19,6 +19,7 @@ updated: 2026-10-02
 - [[concepts/sbom-types|SBOM 類型]] — CISA 定義的六種 SBOM 類型與優缺點（來源 2 份，draft）
 - [[concepts/software-supply-chain|軟體供應鏈]] — 定義、攻擊案例與三大安全屬性（來源 3 份，draft）
 - [[concepts/vex|VEX]] — 漏洞可利用性交換，三種實作、OpenVEX 結構與 Trivy／vexctl 流程（來源 4 份，draft）
+- [[concepts/purl|purl]] — Package URL，元件識別字串；grype 比對與 OpenVEX 產品識別的鍵（來源 3 份，stub）
 - [[concepts/cve|CVE]] — 公共漏洞編號系統、CNA 制度與資金風險（來源 4 份，draft）
 
 ## 標準與格式 Standards

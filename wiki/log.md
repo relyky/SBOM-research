@@ -79,3 +79,8 @@ updated: 2026-10-01
 
 ## [2026-10-02] lint | 修正第三次健康檢查的問題
 - 處理：[[sources/2026-10-02-retirejs-website]] 的「約八成篇幅」改為「幾乎全文」
+
+## [2026-10-02] ingest | 建立 purl 概念頁（依既有來源，非新來源）
+- 新增：[[concepts/purl]]
+- 更新：[[index]]
+- 備註：僅整理 vexctl 文件、syft 實測 SBOM 內的 purl 用法；purl 規格一手來源尚缺，結構細節標（待驗證）。
