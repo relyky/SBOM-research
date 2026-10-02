@@ -3,7 +3,7 @@ title: 知識庫目錄
 type: overview
 tags: [index]
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-02
 ---
 
 # 知識庫目錄（Index）
@@ -11,14 +11,14 @@ updated: 2026-10-01
 > LLM 回答問題時先讀本頁。每次 ingest 後更新。格式：`- [[路徑|名稱]] — 一句話摘要（來源數，狀態）`
 
 ## 總覽
-- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（16，draft）
+- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（17，draft）
 - [[log|知識庫紀錄]] — 所有 ingest / query / lint 的時序紀錄
 
 ## 概念 Concepts
 - [[concepts/sbom|SBOM]] — 軟體物料清單核心概念、用途、採用現況與趨勢（來源 6 份，draft）
 - [[concepts/sbom-types|SBOM 類型]] — CISA 定義的六種 SBOM 類型與優缺點（來源 2 份，draft）
 - [[concepts/software-supply-chain|軟體供應鏈]] — 定義、攻擊案例與三大安全屬性（來源 3 份，draft）
-- [[concepts/vex|VEX]] — 漏洞可利用性交換，三種實作與 Trivy 流程（來源 3 份，draft）
+- [[concepts/vex|VEX]] — 漏洞可利用性交換，三種實作、OpenVEX 結構與 Trivy／vexctl 流程（來源 4 份，draft）
 - [[concepts/cve|CVE]] — 公共漏洞編號系統、CNA 制度與資金風險（來源 4 份，draft）
 
 ## 標準與格式 Standards
@@ -29,6 +29,7 @@ updated: 2026-10-01
 ## 工具 Tools
 - [[tools/trivy|Trivy]] — Aqua 開源掃描器，可產 SBOM 並套用 VEX（來源 1 份，stub）
 - [[tools/microsoft-sbom-tool|Microsoft sbom-tool]] — Microsoft 的 SPDX 2.2／3.0 產生與驗證工具，有 .NET 工具版（來源 1 份，stub）
+- [[tools/vexctl|vexctl]] — OpenVEX 專案的 CLI，建立／合併／驗證／簽證 VEX 並過濾 SARIF（來源 1 份，stub）
 - [[tools/syft-grype|Syft / Grype]] — Anchore 開源 SBOM 產生、弱點與授權掃描工具，含 .NET 實測（來源 7 份，draft）
 
 ## 法規與政策 Regulations
@@ -64,6 +65,7 @@ updated: 2026-10-01
 - [[sources/2026-10-01-anchore-vulnerability-scanning-guide|Anchore：Vulnerability Scanning 教學]] — 官方一手
 - [[sources/2026-10-01-syft-grype-dotnet-sample|實測：syft + grype 掃描 .NET 專案]] — 使用者實測
 - [[sources/2026-10-01-microsoft-sbom-tool|microsoft/sbom-tool README]] — 官方一手
+- [[sources/2026-10-02-openvex-vexctl-readme|openvex/vexctl README]] — 官方一手
 
 ## 分析 Analyses
 （尚無）

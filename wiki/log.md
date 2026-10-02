@@ -56,3 +56,8 @@ updated: 2026-10-01
 ## [2026-10-01] lint | 修正第二次健康檢查的問題
 - 處理：`raw/standards/tools/` 移回 `raw/tools/`（依使用者同意），41 筆失效的 `sources` 路徑恢復
 - 更新：[[index]]（6 個條目的來源數對齊頁面 frontmatter）
+
+## [2026-10-02] ingest | openvex/vexctl README（raw/tools/vexctl.md）
+- 新增：[[sources/2026-10-02-openvex-vexctl-readme]]、[[tools/vexctl]]
+- 更新：[[concepts/vex]]（補 OpenVEX 結構、狀態值、justification、驗證、簽證、多文件重播）、[[overview]]、[[index]]
+- 備註：無矛盾；CycloneDX 與 OpenVEX 的 justification 詞彙不同，已於 [[concepts/vex]] 註記。OpenVEX 規格、sigstore／cosign／in-toto 尚無專頁或一手來源。
