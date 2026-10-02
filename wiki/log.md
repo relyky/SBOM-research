@@ -66,3 +66,8 @@ updated: 2026-10-01
 - 新增：[[analyses/syft-grype-vexctl-workflow]]
 - 更新：[[index]]
 - 備註：grype `--vex` 實際用法待驗證
+
+## [2026-10-02] ingest | Retire.js 網站與 GitHub README（raw/tools/）
+- 新增：[[sources/2026-10-02-retirejs-website]]、[[sources/2026-10-02-retirejs-repo]]、[[tools/retire-js]]
+- 更新：[[standards/cyclonedx]]（補 Retire.js 支援的 1.4／1.6／1.7 與 `_VEX` 變體）、[[overview]]（新增論點 10、路線圖）、[[index]]
+- 備註：矛盾——網站列 Firefox 擴充為正式組成，README 標為 deprecated，已於工具頁以 callout 標示。網站漏洞表約 730 列，筆數為粗略解析，未逐筆 ingest。
