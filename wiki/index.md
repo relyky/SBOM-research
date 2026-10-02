@@ -68,4 +68,4 @@ updated: 2026-10-02
 - [[sources/2026-10-02-openvex-vexctl-readme|openvex/vexctl README]] — 官方一手
 
 ## 分析 Analyses
-（尚無）
+- [[analyses/syft-grype-vexctl-workflow|syft → grype → vexctl 使用順序]] — 三工具串接的 mermaid 活動流程圖（來源 3 份，draft）
