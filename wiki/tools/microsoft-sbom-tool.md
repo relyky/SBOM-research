@@ -50,7 +50,7 @@ sbom-tool redact -sp <path to the SBOM> -o <output path>
 ## 優缺點
 - 優：與 .NET 生態系貼近（可作 .NET 工具、提供 C# API）；同時提供 validate；SPDX 3.0 已支援。[^s]
 - 缺／注意：
-  - 只輸出 SPDX；若下游需要 CycloneDX（如 Aqua 流程的 VEX）需另用工具（如 [[tools/syft-grype|Syft]]）。（對照為本庫推論）
+  - 只輸出 SPDX；若下游需要 CycloneDX（如 Aqua 流程的 VEX）需另用工具（如 [[tools/syft-grype|Syft]]、[[tools/cyclonedx-dotnet|CycloneDX for .NET]]）。（對照為本庫推論）
   - 不接受外部貢獻。[^s]
   - 預設輸出路徑與 [[practices/sbom-file-naming]] 的慣例不同。[^s]
 

@@ -84,3 +84,21 @@ updated: 2026-10-01
 - 新增：[[concepts/purl]]
 - 更新：[[index]]
 - 備註：僅整理 vexctl 文件、syft 實測 SBOM 內的 purl 用法；purl 規格一手來源尚缺，結構細節標（待驗證）。
+
+## [2026-10-05] ingest | CycloneDX/cyclonedx-dotnet README（raw/tools/）
+- 新增：[[sources/2026-10-05-cyclonedx-dotnet-readme]]、[[tools/cyclonedx-dotnet]]
+- 更新：[[standards/cyclonedx]]（補 1.0–1.7 可選版本與 .NET 工具）、[[tools/microsoft-sbom-tool]]、[[practices/dotnet-sbom-syft-grype]]（補替代方案）、[[overview]]（論點 8 改為三條路線）、[[index]]
+- 備註：無矛盾。剪藏中「This module runs on」被截斷；`docs/best-practices.md`、`docs/bom-metadata.md` 尚未蒐集；三工具對同一 .NET 專案的元件清單差異待實測。
+
+## [2026-10-05] ingest | cyclonedx-dotnet 實測筆記（raw/tools/）
+- 新增：[[sources/2026-10-05-cyclonedx-dotnet-practice]]
+- 更新：[[tools/cyclonedx-dotnet]]（補 6.2.0 實測紀錄）、[[practices/dotnet-sbom-syft-grype]]、[[overview]]、[[index]]
+- 備註：無矛盾。實測預設輸出 XML；檔名 `-cdx.json` 與 [[practices/sbom-file-naming]] 慣例不同。未附 BOM 內容，無法與 syft 比較元件清單。
+
+## [2026-10-05] ingest | cyclonedx-dotnet 實測筆記（重新 ingest，raw 已修訂）
+- 更新：[[sources/2026-10-05-cyclonedx-dotnet-practice]]（原文引句改為修訂後文字，補預設檔名 `bom.xml`、JSON 範例說明）、[[tools/cyclonedx-dotnet]]
+- 備註：raw 修訂僅為措辭補充，無新事實，結論與矛盾狀態不變。
+
+## [2026-10-05] ingest | cyclonedx-dotnet 實測筆記（第二次重新 ingest，新增「為何使用」段）
+- 更新：[[sources/2026-10-05-cyclonedx-dotnet-practice]]、[[tools/cyclonedx-dotnet]]、[[tools/syft-grype]]（補授權資訊限制）、[[practices/dotnet-sbom-syft-grype]]（補陷阱）、[[overview]]（論點 8）、[[index]]
+- 備註：新事實——使用者測得 syft 取不到 .NET 套件授權資訊。與 [[tools/syft-grype]] 的「支援 .NET（NuGet）」不矛盾（元件偵測 vs 授權欄位），但為其限制；本庫檢視 `publish.sbom.cdx.json` 無 license 欄位，相符。Grant 在 .NET 的效用為推論，待驗證。

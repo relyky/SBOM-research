@@ -2,9 +2,9 @@
 title: 以 syft + grype 為 .NET 專案產生 SBOM 並掃描漏洞
 type: practice
 tags: [sbom, practice, dotnet, syft, grype]
-sources: [raw/tools/sbom-tool.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
+sources: [raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/sbom-tool.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-05
 status: draft
 ---
 
@@ -32,6 +32,8 @@ status: draft
 ## 替代方案
 - [[tools/microsoft-sbom-tool|Microsoft sbom-tool]]：以 `-bc` 掃 `*.csproj` 等專案檔、`-b` 雜湊出貨檔案，輸出 SPDX 2.2／3.0，可作為 .NET 工具安裝並含 validate。與 syft 的元件清單是否一致，尚未實測。[^t]
 
+- [[tools/cyclonedx-dotnet|CycloneDX for .NET]]：`dotnet-CycloneDX <sln/csproj> -o <dir>` 從專案檔經 `dotnet restore` 解析依賴，輸出 CycloneDX 1.7；可用 `-ef` 排除不在出貨輸出的套件。使用者實測（6.2.0）：`dotnet-CycloneDX X.slnx -o .sbom -F Json -t -fn <檔名>`，預設輸出 XML、`-F Json` 才輸出 JSON；但未檢視 BOM 內容，與 syft 的元件清單是否一致尚未比較。[^c][^cp]
+
 ## 角色與責任
 未定（來源為個人實測；導入時需明定由誰在 CI 產生、誰審閱結果）。
 
@@ -48,6 +50,7 @@ status: draft
 ## 常見陷阱
 - 掃整個專案目錄：1365 個元件，含重複計算；只掃發佈產物：176 個。[^p]
 - grype 只比對有 purl 的套件，無 purl 的元件與 .NET 執行環境本身不在範圍；0 漏洞不等於安全。[^p]
+- 缺授權資訊：使用者測得 syft 取不到 .NET 套件的授權資訊，無法快速檢查 license 是否核可，故改用 cyclonedx-dotnet 補此需求；實測 SBOM 亦無 license 欄位。[^cp]
 - 實際 SBOM 檔：CycloneDX 1.7、170 個 `library`（皆 `pkg:nuget`）、6 個 `application`；各元件帶 CPE 與 `syft:*` 屬性。（本庫對附檔的直接檢視）[^p]
 
 ## 業界案例
@@ -56,3 +59,5 @@ status: draft
 ## 參考來源
 [^p]: [[sources/2026-10-01-syft-grype-dotnet-sample]]
 [^t]: [[sources/2026-10-01-microsoft-sbom-tool]]
+[^c]: [[sources/2026-10-05-cyclonedx-dotnet-readme]]
+[^cp]: [[sources/2026-10-05-cyclonedx-dotnet-practice]]

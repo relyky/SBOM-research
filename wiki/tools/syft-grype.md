@@ -3,7 +3,7 @@ title: Syft / Grype
 type: tool
 tags: [sbom, tool, anchore]
 aliases: [Syft, Grype, Grant, Tern, Anchore 開源工具]
-sources: [raw/tools/Overview of Anchore Open Source tools.md, raw/tools/Syft.md, raw/tools/Grype.md, raw/tools/SBOM Generation.md, raw/tools/Vulnerability Scanning.md, raw/tools/syft-grype.sample.md, raw/industry/軟體物料清單SBOM發展趨勢.md]
+sources: [raw/tools/Overview of Anchore Open Source tools.md, raw/tools/Syft.md, raw/tools/Grype.md, raw/tools/SBOM Generation.md, raw/tools/Vulnerability Scanning.md, raw/tools/syft-grype.sample.md, raw/tools/clonedx-dotnet-practice.md, raw/industry/軟體物料清單SBOM發展趨勢.md]
 vendor: Anchore
 license: Apache-2.0
 version_checked: syft 1.52.0、grype 0.119.0（截至 2026-10，使用者實測）
@@ -57,6 +57,7 @@ grype db update
 - 缺／注意：
   - 掃目錄會把 `bin/`、`obj/`、`publish/` 一併計入而重複計算，建議只掃發佈產物或用 `--exclude`。[^p]
   - Grype 只能比對有 purl 的套件，無 purl 的元件與 .NET 執行環境本身不在掃描範圍；結果 0 漏洞不代表無風險。[^p]
+  - 授權資訊：使用者測得 syft 拿不到 .NET 套件的授權資訊，無法快速檢查 license 是否核可；本庫檢視實測 SBOM（`publish.sbom.cdx.json`）亦無任何 license 欄位。這也使依賴 SBOM 授權資料的 Grant 在 .NET 專案上的效用存疑（推論，待驗證）。[^cp]
   - 預設只掃最終映像（squashed），需 `--scope all-layers` 才含所有層。[^sg]
 
 ## 實測紀錄
@@ -70,3 +71,4 @@ grype db update
 [^v]: [[sources/2026-10-01-anchore-vulnerability-scanning-guide]]
 [^p]: [[sources/2026-10-01-syft-grype-dotnet-sample]]
 [^m]: [[sources/2026-10-01-moea-sbom-trends]]
+[^cp]: [[sources/2026-10-05-cyclonedx-dotnet-practice]]

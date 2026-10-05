@@ -1,0 +1,180 @@
+---
+title: "CycloneDX/cyclonedx-dotnet: Creates CycloneDX Software Bill of Materials (SBOM) from .NET Projects"
+source: "https://github.com/CycloneDX/cyclonedx-dotnet"
+author:
+published:
+created: 2026-10-05
+description: "Creates CycloneDX Software Bill of Materials (SBOM) from .NET Projects - CycloneDX/cyclonedx-dotnet"
+tags:
+  - "clippings"
+---
+## CycloneDX module for.NET
+
+---
+
+The CycloneDX module for.NET creates a valid CycloneDX bill-of-material document containing an aggregate of all project dependencies. CycloneDX is a lightweight BOM specification that is easily created, human readable, and simple to parse.
+
+This module runs on
+
+## Usage
+
+CycloneDX for.NET is distributed via [NuGet](https://www.nuget.org/packages/CycloneDX/) and [Docker Hub](https://hub.docker.com/r/cyclonedx/cyclonedx-dotnet).
+
+#### Installing via NuGet
+
+```
+dotnet tool install --global CycloneDX
+```
+
+If you already have a previous version of **CycloneDX** installed, you can upgrade to the latest version using the following command:
+
+```
+dotnet tool update --global CycloneDX
+```
+
+#### Execution
+
+```
+dotnet-CycloneDX <path> -o <OUTPUT_DIRECTORY>
+```
+
+> **Note:** If you encounter a "command not found" error after installation, try restarting your terminal. Also, ensure that the `~/.dotnet/tools` directory is included in your `PATH`.
+
+For guidance on what to point the tool at, how to restore, and how to set BOM metadata, see [docs/best-practices.md](https://github.com/CycloneDX/cyclonedx-dotnet/blob/master/docs/best-practices.md).
+
+#### Execution via Docker
+
+```
+docker run --rm --user $(id -u):$(id -g) \
+  -v $(pwd):/work \
+  cyclonedx/cyclonedx-dotnet [OPTIONS] /work/<path>
+```
+
+> **Note:** The `--user $(id -u):$(id -g)` flag runs the container as your host user, ensuring `dotnet restore` can write to the mounted volume and output files are owned by you rather than root. A future major release will make non-root the default. See [docs/adr-001-rootless-container.md](https://github.com/CycloneDX/cyclonedx-dotnet/blob/master/docs/adr-001-rootless-container.md) for background.
+
+#### Options
+
+```
+Usage:
+  dotnet-CycloneDX <path> [options]
+
+Arguments:
+  <path>  The path to a .sln, .slnf, .slnx, .csproj, .fsproj, .vbproj, .xsproj, or packages.config file or the path to a directory which will be recursively analyzed for packages.config files.
+
+Options:
+  -tfm, --framework <framework>                                                The target framework to use. If not defined, all will be aggregated.
+  -rt, --runtime <runtime>                                                     The runtime to use. If not defined, all will be aggregated.
+  -o, --output <output>                                                        The directory to write the BOM
+  -fn, --filename <filename>                                                   Optionally provide a filename for the BOM (default: bom.xml or bom.json)
+  -ed, --exclude-dev                                                           Exclude development dependencies from the BOM (see https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+  -t, --exclude-test-projects                                                  Exclude test projects from the BOM
+  -u, --url <url>                                                              Alternative NuGet repository URL to https://<yoururl>/nuget/<yourrepository>/v3/index.json
+  -us, --baseUrlUsername <baseUrlUsername>                                     Alternative NuGet repository username (env: CYCLONEDX_NUGET_USERNAME)
+  -usp, --baseUrlUserPassword <baseUrlUserPassword>                            Alternative NuGet repository username password/apikey (env: CYCLONEDX_NUGET_PASSWORD)
+  -uspct, --isBaseUrlPasswordClearText                                         Alternative NuGet repository password is cleartext
+  -rs, --recursive                                                             To be used with a single project file, it will recursively scan project references of the supplied project file
+  -ns, --no-serial-number                                                      Optionally omit the serial number from the resulting BOM
+  -gu, --github-username <github-username>                                     Optionally provide a GitHub username for license resolution. If set you also need to provide a GitHub personal access token (env: CYCLONEDX_GITHUB_USERNAME)
+  -gt, --github-token <github-token>                                           Optionally provide a GitHub personal access token for license resolution. If set you also need to provide a GitHub username (env: CYCLONEDX_GITHUB_TOKEN)
+  -gbt, --github-bearer-token <github-bearer-token>                            Optionally provide a GitHub bearer token for license resolution. This is useful in GitHub actions (env: CYCLONEDX_GITHUB_BEARER_TOKEN, GITHUB_TOKEN)
+  -egl, --enable-github-licenses                                               Enables GitHub license resolution
+  -dpr, --disable-package-restore                                              Optionally disable package restore
+  -dhc, --disable-hash-computation                                             Optionally disable hash computation for packages
+  -dct, --dotnet-command-timeout <dotnet-command-timeout>                      dotnet command timeout in milliseconds (primarily used for long dotnet restore operations) [default: 300000]
+  -biop, --base-intermediate-output-path <base-intermediate-output-path>       Optionally provide a folder for customized build environment. Required if folder 'obj' is relocated.
+  -imp, --import-metadata-path <import-metadata-path>                          Optionally provide a metadata template which has project specific details.
+  -ipr, --include-project-references                                           Include project references as components (can only be used with project files).
+  -sn, --set-name <set-name>                                                   Override the autogenerated BOM metadata component name.
+  -sv, --set-version <set-version>                                             Override the default BOM metadata component version (defaults to 0.0.0).
+  -st, --set-type   <Application|Container|Data|Device|Device_Driver|          Override the default BOM metadata component type (defaults to application). [default: Application]
+                     File|Firmware|Framework|Library|
+                     Machine_Learning_Model|Null|Operating_System|Platform>
+  -ef, --exclude-filter <exclude-filter>                                       A comma separated list of dependencies to exclude in form 'name1@version1,name2@version2' or 'name1,name2' (to exclude all versions). Transitive dependencies will also be removed.
+  -F, --output-format <Auto|Json|UnsafeJson|Xml>                               Select the BOM output format: auto (default), xml, json, or unsafeJson (relaxed escaping). [default: Auto]                            
+  --set-nuget-purl                                                             Override the default BOM metadata component bom ref and PURL as NuGet package.
+  -spv, --spec-version <1.0|1.1|1.2|1.3|1.4|1.5|1.6|1.7>                       Which version of CycloneDX spec to use. [default: 1.7]
+  --version                                                                    Show version information
+  -?, -h, --help                                                               Show help and usage information
+```
+
+- `-ef, --exclude-filter`  
+	The exclude filter may be used to exclude any packages, which are resolved by NuGet, but do not exist in the final binary output. For example, an application targets.NET 8, but has a dependency to a library, which only supports.NET Standard 1.6. Without filter, the libraries of.NET Standard 1.6 would be in the resulting SBOM. But they are not used by application as they do not exist in the binary output folder.
+
+#### Examples
+
+To run the **CycloneDX** tool you need to specify a solution or project file. In case you pass a solution, the tool will aggregate all the projects.
+
+The following will create a BOM from a solution and all projects defined within:
+
+```
+dotnet-CycloneDX YourSolution.sln -o /output/path
+```
+
+The following will recursively scan the directory structure for packages.config and create a BOM:
+
+```
+dotnet-CycloneDX /path/to/project -o /output/path
+```
+
+The following will recursively scan the project references of the supplied project file, and create a BOM of all package references from all included projects:
+
+```
+dotnet-CycloneDX /path/to/project/MyProject.csproj -o /output/path -rs
+```
+
+The following will create a BOM from a project and exclude transitive dependency.NET Standard:
+
+```
+dotnet-CycloneDX /path/to/project/MyProject.csproj -o /output/path -ef NETStandard.Library@1.6.0
+```
+
+#### BOM metadata
+
+The BOM `<metadata>` block is populated from three sources in priority order: CLI arguments (`--set-name`, `--set-version`, `--set-type`) override a template file (`--import-metadata-path`), which in turn overrides the automatic fallback derived from the scanned project name.
+
+See **[docs/bom-metadata.md](https://github.com/CycloneDX/cyclonedx-dotnet/blob/master/docs/bom-metadata.md)** for the full reference: template file format, precedence rules, and common CI patterns.
+
+#### Credentials via environment variables
+
+All credential options can be supplied through environment variables instead of command-line arguments. This avoids exposing secrets in process listings, shell history, and CI logs.
+
+| Environment variable | Equivalent CLI flag | Description |
+| --- | --- | --- |
+| `CYCLONEDX_NUGET_USERNAME` | `-us` / `--baseUrlUsername` | NuGet feed username |
+| `CYCLONEDX_NUGET_PASSWORD` | `-usp` / `--baseUrlUserPassword` | NuGet feed password or API key |
+| `CYCLONEDX_GITHUB_USERNAME` | `-gu` / `--github-username` | GitHub username for Basic auth |
+| `CYCLONEDX_GITHUB_TOKEN` | `-gt` / `--github-token` | GitHub personal access token |
+| `CYCLONEDX_GITHUB_BEARER_TOKEN` | `-gbt` / `--github-bearer-token` | GitHub bearer token |
+| `GITHUB_TOKEN` | `-gbt` / `--github-bearer-token` | GitHub bearer token (standard Actions variable, used as fallback for `CYCLONEDX_GITHUB_BEARER_TOKEN`) |
+
+When both a CLI argument and an environment variable are set, the CLI argument takes precedence.
+
+#### GitHub License Resolution
+
+SPDX license IDs can be resolved for packages that reference a supported license file in a GitHub repository.
+
+The GitHub license API has an unauthenticated call limit of 60 calls per hour. To ensure consistent output if a rate limit is exceeded BOM generation will fail. If you start hitting rate limits you will need to generate a personal access token and provide this, and your username, when running CycloneDX.
+
+To generate a token go to [Personal access tokens](https://github.com/settings/tokens) under `Settings / Developer settings`. From there, select the option to [Generate new token](https://github.com/settings/tokens/new). No special token permissions are required.
+
+Due to current limitations in the GitHub API licenses will only be resolved for master branch license references.
+
+## License
+
+Permission to modify and redistribute is granted under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/CycloneDX/cyclonedx-dotnet/blob/master/LICENSE) file for the full license.
+
+## Contributing
+
+Pull requests are welcome. But please read the [CycloneDX contributing guidelines](https://github.com/CycloneDX/.github/blob/master/CONTRIBUTING.md) first.
+
+To build and test the solution locally you should have.NET 8.0,.NET 9.0 or.NET 10.0 SDK installed. Standard commands like `dotnet build` and `dotnet test` work.
+
+Alternatively, you can use VS Code and the included devcontainer configuration to work in a pre-configured docker image. (You will also need the "Remote - Containers" extension and Docker)
+
+It is generally expected that pull requests will include relevant tests. Tests are automatically run on Windows, MacOS and Linux for every pull request. And build warnings will break the build.
+
+If you are having trouble debugging a test that is failing for a platform you don't have access to please let us know.
+
+Thanks to [Gitpod](https://gitpod.io/) there is a really easy way of creating a ready to go development environment with VS Code. You can open a Gitpod hosted development environment in your browser.
+
+[![Open in Gitpod](https://camo.githubusercontent.com/6a4edb76a7e92e0faad09a11e42cba7c39803ee6723f8cb1b801f91113d59695/68747470733a2f2f676974706f642e696f2f627574746f6e2f6f70656e2d696e2d676974706f642e737667)](https://gitpod.io/#https://github.com/CycloneDX/cyclonedx-dotnet)

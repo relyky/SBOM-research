@@ -3,11 +3,11 @@ title: CycloneDX
 type: standard
 tags: [sbom, standard]
 aliases: [CDX]
-sources: [raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/tools/SBOM Generation.md, raw/tools/RetireJS - repo.md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/tools/clonedx-dotnet.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/tools/SBOM Generation.md, raw/tools/RetireJS - repo.md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
 current_version: 至少 1.7（2026-10 實測 syft 1.52.0 產出的 `specVersion`；是否為最新版待一手規格）
 maintainer: OWASP（依中文維基與資策會 2024-02 文章）
 created: 2026-10-01
-updated: 2026-10-02
+updated: 2026-10-05
 status: stub
 ---
 
@@ -26,7 +26,7 @@ OWASP 提出的 SBOM 格式，建立之初即專為 SBOM 設計。[^s4][^m]
 |---|---|---|
 | 1.4 | 待補 | Aqua 文章的 VEX 範例使用此版本（`specVersion: 1.4`）[^a] |
 | 1.6 | 待補 | Retire.js 可輸出（`cyclonedxJSON1_6`）[^rj] |
-| 1.7 | 待補 | 2026-10 實測 syft 1.52.0 輸出此版本[^p]；Retire.js 亦可輸出[^rj] |
+| 1.7 | 待補 | 2026-10 實測 syft 1.52.0 輸出此版本[^p]；Retire.js 亦可輸出[^rj]；cyclonedx-dotnet 預設輸出 1.7，可選 1.0–1.7[^cd] |
 
 ## 資料模型與核心欄位
 - JSON 以 `components[]` 列出元件（對照 SPDX 為 `packages[]`）。[^sg]
@@ -45,7 +45,8 @@ JSON（`.cdx.json`）、XML（`.cdx.xml`），檔名慣例見 [[practices/sbom-f
 - Syft 的主要輸出格式之一，見 [[tools/syft-grype]]。[^sg]
 - [[tools/trivy|Trivy]] 可輸出 CycloneDX 並套用 CycloneDX VEX。[^a]
 - [[tools/retire-js|Retire.js]] 可輸出 CycloneDX 1.4 XML 與 JSON 1.4／1.6／1.7，1.6、1.7 另有含 `vulnerabilities` 的 `_VEX` 變體。[^rj]
-- 各語言生態系外掛：待補。
+- [[tools/cyclonedx-dotnet|CycloneDX for .NET]]：CycloneDX 官方 GitHub 組織的 .NET 專案 BOM 產生工具，輸出 1.0–1.7，預設 1.7。[^cd]
+- 其他語言生態系外掛：待補。
 
 ## 採用狀況
 資策會文章稱其為 NTIA 官方認可並推薦的格式之一（待對照 NTIA 原文）。[^m]
@@ -56,5 +57,6 @@ JSON（`.cdx.json`）、XML（`.cdx.xml`），檔名慣例見 [[practices/sbom-f
 [^a]: [[sources/2026-10-01-aqua-what-is-vex]]
 [^m]: [[sources/2026-10-01-moea-sbom-trends]]
 [^rj]: [[sources/2026-10-02-retirejs-repo]]
+[^cd]: [[sources/2026-10-05-cyclonedx-dotnet-readme]]
 [^s1]: [[sources/2026-10-01-openssf-sbom-naming]]
 [^s4]: [[sources/2026-10-01-wikipedia-zh-software-supply-chain]]

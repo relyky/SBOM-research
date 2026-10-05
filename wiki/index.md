@@ -3,7 +3,7 @@ title: 知識庫目錄
 type: overview
 tags: [index]
 created: 2026-10-01
-updated: 2026-10-02
+updated: 2026-10-05
 ---
 
 # 知識庫目錄（Index）
@@ -11,7 +11,7 @@ updated: 2026-10-02
 > LLM 回答問題時先讀本頁。每次 ingest 後更新。格式：`- [[路徑|名稱]] — 一句話摘要（來源數，狀態）`
 
 ## 總覽
-- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（19，draft）
+- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（21，draft）
 - [[log|知識庫紀錄]] — 所有 ingest / query / lint 的時序紀錄
 
 ## 概念 Concepts
@@ -24,7 +24,7 @@ updated: 2026-10-02
 
 ## 標準與格式 Standards
 - [[standards/spdx|SPDX]] — SBOM 格式，ISO/IEC 5962，有 2.2、3.0 版（來源 5 份，stub）
-- [[standards/cyclonedx|CycloneDX]] — OWASP 提出的 SBOM 格式，支援 VEX（來源 8 份，stub）
+- [[standards/cyclonedx|CycloneDX]] — OWASP 提出的 SBOM 格式，支援 VEX（來源 9 份，stub）
 - [[standards/swid|SWID]] — ISO/IEC 19770-2 軟體識別標籤，NIST 推廣（來源 3 份，draft）
 
 ## 工具 Tools
@@ -32,7 +32,9 @@ updated: 2026-10-02
 - [[tools/microsoft-sbom-tool|Microsoft sbom-tool]] — Microsoft 的 SPDX 2.2／3.0 產生與驗證工具，有 .NET 工具版（來源 1 份，stub）
 - [[tools/vexctl|vexctl]] — OpenVEX 專案的 CLI，建立／合併／驗證／簽證 VEX 並過濾 SARIF（來源 1 份，stub）
 - [[tools/retire-js|Retire.js]] — 專精 JavaScript 函式庫的漏洞掃描器，可輸出 CycloneDX（含 VEX 變體）（來源 2 份，stub）
-- [[tools/syft-grype|Syft / Grype]] — Anchore 開源 SBOM 產生、弱點與授權掃描工具，含 .NET 實測（來源 7 份，draft）
+- [[tools/syft-grype|Syft / Grype]] — Anchore 開源 SBOM 產生、弱點與授權掃描工具，含 .NET 實測與授權資訊限制（來源 8 份，draft）
+
+- [[tools/cyclonedx-dotnet|CycloneDX for .NET]] — 由 .NET 方案／專案檔產生 CycloneDX BOM 的官方工具，預設規格 1.7，含 6.2.0 基本實測（來源 2 份，stub）
 
 ## 法規與政策 Regulations
 - [[regulations/eo-14028|EO 14028]] — 美國 2021 年行政命令，催生 SBOM 最低要素（來源 3 份，stub）
@@ -48,7 +50,7 @@ updated: 2026-10-02
 
 ## 實務流程 Practices
 - [[practices/sbom-file-naming|SBOM 檔案命名慣例]] — 製品檔名加 `.cdx.json`／`.spdx.json` 等副檔名（來源 4 份，draft）
-- [[practices/dotnet-sbom-syft-grype|.NET 專案以 syft + grype 產生 SBOM 並掃描]] — 掃發佈產物、指定名稱版本、注意 purl 限制（來源 4 份，draft）
+- [[practices/dotnet-sbom-syft-grype|.NET 專案以 syft + grype 產生 SBOM 並掃描]] — 掃發佈產物、指定名稱版本、注意 purl 限制，並列 sbom-tool、cyclonedx-dotnet 替代方案（來源 6 份，draft）
 
 ## 來源摘要 Sources
 - [[sources/2026-10-01-openssf-sbom-naming|OpenSSF：SBOM 命名與目錄慣例]] — 業界指引
@@ -70,6 +72,8 @@ updated: 2026-10-02
 - [[sources/2026-10-02-openvex-vexctl-readme|openvex/vexctl README]] — 官方一手
 - [[sources/2026-10-02-retirejs-repo|RetireJS/retire.js README]] — 官方一手
 - [[sources/2026-10-02-retirejs-website|Retire.js 官方網站]] — 官方一手（較舊）
+- [[sources/2026-10-05-cyclonedx-dotnet-readme|CycloneDX/cyclonedx-dotnet README]] — 官方一手
+- [[sources/2026-10-05-cyclonedx-dotnet-practice|實測：cyclonedx-dotnet 安裝與基本使用]] — 使用者實測，含改用動機（syft 缺 .NET 授權資訊）
 
 ## 分析 Analyses
 - [[analyses/syft-grype-vexctl-workflow|syft → grype → vexctl 使用順序]] — 三工具串接的 mermaid 活動流程圖（來源 3 份，draft）
