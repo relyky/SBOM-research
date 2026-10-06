@@ -2,7 +2,7 @@
 title: 以 syft + grype 為 .NET 專案產生 SBOM 並掃描漏洞
 type: practice
 tags: [sbom, practice, dotnet, syft, grype]
-sources: [raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/sbom-tool.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
+sources: [raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/Microsoft sbom-tool.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
 created: 2026-10-01
 updated: 2026-10-05
 status: draft

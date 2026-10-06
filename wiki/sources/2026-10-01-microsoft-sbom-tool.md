@@ -2,7 +2,7 @@
 title: microsoft/sbom-tool README
 type: source
 tags: [sbom, tool, spdx, microsoft, dotnet]
-sources: [raw/tools/sbom-tool.md]
+sources: [raw/tools/Microsoft sbom-tool.md]
 source_url: https://github.com/microsoft/sbom-tool
 source_author: Microsoft
 source_date: 未標示（剪藏於 2026-10-01）

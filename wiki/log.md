@@ -102,3 +102,13 @@ updated: 2026-10-01
 ## [2026-10-05] ingest | cyclonedx-dotnet 實測筆記（第二次重新 ingest，新增「為何使用」段）
 - 更新：[[sources/2026-10-05-cyclonedx-dotnet-practice]]、[[tools/cyclonedx-dotnet]]、[[tools/syft-grype]]（補授權資訊限制）、[[practices/dotnet-sbom-syft-grype]]（補陷阱）、[[overview]]（論點 8）、[[index]]
 - 備註：新事實——使用者測得 syft 取不到 .NET 套件授權資訊。與 [[tools/syft-grype]] 的「支援 .NET（NuGet）」不矛盾（元件偵測 vs 授權欄位），但為其限制；本庫檢視 `publish.sbom.cdx.json` 無 license 欄位，相符。Grant 在 .NET 的效用為推論，待驗證。
+
+## [2026-10-06] ingest | CycloneDX 組織首頁、cyclonedx-cli README、sbom-tools README（Clippings → raw/）
+- 新增：[[sources/2026-10-06-cyclonedx-org-github]]、[[sources/2026-10-06-cyclonedx-cli-readme]]、[[sources/2026-10-06-sbom-tools-readme]]、[[tools/cyclonedx-cli]]、[[tools/sbom-tools]]、[[organizations/owasp]]
+- 更新：[[standards/cyclonedx]]（補 ECMA-424 別名、10 類 BOM、Protobuf、1.0–1.7 工具支援）、[[standards/spdx]]（SPDX 互轉與工具支援）、[[regulations/ntia-minimum-elements]]（補 CISA 2026 後繼版，待驗證）、[[concepts/vex]]（sbom-tools 的 VEX 閘門）、[[tools/microsoft-sbom-tool]]（加與 sbom-tools 的辨識提醒）、[[overview]]（新增論點 11、路線圖）、[[index]]
+- 備註：矛盾已解決——[[standards/cyclonedx]] 先前因無來源移除的 ECMA-424，現由官方首頁支持而補回（批准日期待查）。路徑修正——`raw/tools/sbom-tool.md` 已被使用者更名為 `Microsoft sbom-tool.md`，已同步更新 overview、spdx、sbom-file-naming、dotnet-sbom-syft-grype、microsoft-sbom-tool 與其來源頁的 `sources` 路徑（舊 log 條目保留原樣）。CISA 2026 最低要素 v2.1 僅由 sbom-tools 轉述，尚無原文。
+
+## [2026-10-06] lint | 第四次健康檢查與修正
+- 結果：機械檢查全過（無失效連結、孤兒頁，`sources` 路徑與 index 來源數一致）
+- 處理：[[tools/sbom-tools]]、[[tools/microsoft-sbom-tool]] 的「不產生 SBOM」無來源，改為「README 未列 SBOM 產生功能（待驗證）」
+- 備註：SCA／KEV／CSAF／Sigstore／SARIF／CBOM 仍無專頁；CISA 2026 最低要素仍待原文

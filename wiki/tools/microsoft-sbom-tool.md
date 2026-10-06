@@ -3,7 +3,7 @@ title: Microsoft sbom-tool
 type: tool
 tags: [sbom, tool, spdx, microsoft, dotnet]
 aliases: [sbom-tool, Microsoft.SbomTool, Microsoft.Sbom.DotNetTool]
-sources: [raw/tools/sbom-tool.md]
+sources: [raw/tools/Microsoft sbom-tool.md]
 vendor: Microsoft
 license: 未查證（README 摘錄未載明）
 version_checked: 未查證（來源為 2026-10 剪藏，未標版本）
@@ -15,6 +15,7 @@ status: stub
 # Microsoft sbom-tool
 
 > 本頁僅依官方 README 撰寫，尚無實測。
+> 勿與 [[tools/sbom-tools|sbom-tool/sbom-tools]]（第三方 Rust 分析工具，README 未列 SBOM 產生功能）混淆。
 
 ## 用途與定位
 產生、驗證並（對 SPDX 2.2）去識別化 SBOM 的企業級工具；元件偵測靠 Component Detection，授權資訊靠 ClearlyDefined API。[^s]

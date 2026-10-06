@@ -3,12 +3,12 @@ title: NTIA SBOM 最低要素
 type: regulation
 tags: [sbom, regulation, us, ntia]
 aliases: [The Minimum Elements For a Software Bill of Materials, NTIA Minimum Elements]
-sources: [raw/industry/Software supply chain.md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/軟體物料清單SBOM發展趨勢.md]
+sources: [raw/tools/sbom-tools.md, raw/industry/Software supply chain.md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/軟體物料清單SBOM發展趨勢.md]
 jurisdiction: 美國
 issuer: NTIA（美國國家電信暨資訊管理局）
 effective_date: 2021-07-12（發布日）
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 status: draft
 ---
 
@@ -43,15 +43,21 @@ status: draft
 | 日期 | 里程碑 |
 |---|---|
 | 2021-07-12 | NTIA 發布最低要素[^z] |
+| 2026-07-29 | CISA/NSA/FBI《2026 Minimum Elements for an SBOM》v2.1，據稱為 NTIA 2021 的後繼版且更嚴格（僅由 sbom-tools README 轉述，待 CISA 原文）[^st] |
 
 ## 對企業的實務影響
 - 自動化要求意味需將 SBOM 產生納入 CI/CD 與 SCA 工具鏈（推論，待驗證）。
 - 標準化格式與自動化比對，可避免各廠商 SBOM 無法互相檢驗。[^m]
 
+## 歷史沿革
+> [!note] 後繼版本（待驗證）
+> sbom-tools 的 `cisa-2026` 驗證檔稱 2026 年版「the successor to NTIA 2021 and deliberately stricter」：僅列工具為 SBOM 作者不算數，授權欄位若省略即失敗，需明確標 `NOASSERTION`。[^st] 本頁七項欄位仍是 NTIA 2021 版；2026 版欄位差異未查證。
+
 ## 相關法規/指引
 - [[regulations/eo-14028]]、[[concepts/sbom]]、[[concepts/sbom-types]]、[[standards/spdx]]、[[standards/cyclonedx]]、[[standards/swid]]
 
 ## 參考來源
+[^st]: [[sources/2026-10-06-sbom-tools-readme]]
 [^w]: [[sources/2026-10-01-wikipedia-software-supply-chain]]
 [^z]: [[sources/2026-10-01-wikipedia-zh-software-supply-chain]]
 [^m]: [[sources/2026-10-01-moea-sbom-trends]]

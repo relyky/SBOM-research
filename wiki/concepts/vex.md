@@ -3,9 +3,9 @@ title: VEX（漏洞可利用性交換）
 type: concept
 tags: [sbom, vex, vulnerability]
 aliases: [Vulnerability Exploitability eXchange]
-sources: [raw/tools/Grype.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/tools/vexctl.md]
+sources: [raw/tools/sbom-tools.md, raw/tools/Grype.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/tools/vexctl.md]
 created: 2026-10-01
-updated: 2026-10-02
+updated: 2026-10-06
 status: draft
 ---
 
@@ -38,6 +38,7 @@ status: draft
 ## 實務注意事項
 - 容器與 Kubernetes 生態系對 VEX 的採用動能明顯。[^a]
 - 以上多來自廠商文章與工具 README，CSAF／OpenVEX 規格本身仍待一手來源。
+- [[tools/sbom-tools|sbom-tools]] 可疊加 OpenVEX（`--vex`），並用 `--fail-on-vex-gap` 在新引入漏洞缺 VEX 聲明時令 CI 失敗，也可偵測 SBOM 版本間 VEX 狀態轉變（如 NotAffected → Affected）。[^st]
 - 不同格式的 justification 詞彙不同（CycloneDX：`code_not_reachable`；OpenVEX：`vulnerable_code_not_in_execute_path`），互轉時需對映。
 
 ## 開放問題
@@ -46,6 +47,7 @@ status: draft
 
 ## 參考來源
 [^a]: [[sources/2026-10-01-aqua-what-is-vex]]
+[^st]: [[sources/2026-10-06-sbom-tools-readme]]
 [^t]: [[sources/2026-10-01-openssf-sbom-types]]
 [^g]: [[sources/2026-10-01-anchore-grype-readme]]
 [^v]: [[sources/2026-10-02-openvex-vexctl-readme]]

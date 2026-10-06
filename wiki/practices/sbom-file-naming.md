@@ -2,7 +2,7 @@
 title: SBOM 檔案命名慣例
 type: practice
 tags: [sbom, practice, naming, openssf]
-sources: [raw/tools/sbom-tool.md, raw/tools/SBOM Generation.md, raw/tools/syft-grype.sample.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/tools/Microsoft sbom-tool.md, raw/tools/SBOM Generation.md, raw/tools/syft-grype.sample.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
 created: 2026-10-01
 updated: 2026-10-01
 status: draft
