@@ -57,9 +57,12 @@ status: draft
 | 前端 JS | 未涵蓋 | retire + 合併 |
 （比較依兩條路線的來源整理；元件清單是否一致尚未實測）
 
+使用者的選擇（簡報）：自家 .NET 專案走本路線，收到外部產物時才以 syft + grype 交叉檢查。CI 整合見 [[practices/sbom-lifecycle-and-ci]]。[^d]
+
 ## 業界案例
 （尚無）
 
 ## 參考來源
 [^a]: [[sources/2026-10-07-dotnet-sbom-scan-script]]
 [^b]: [[sources/2026-10-07-dotnet-js-sbom-scan-script]]
+[^d]: [[analyses/sbom-practice-talk.marp|簡報：SBOM 實戰分享]]

@@ -63,3 +63,5 @@ status: draft
 [^t]: [[sources/2026-10-01-microsoft-sbom-tool]]
 [^c]: [[sources/2026-10-05-cyclonedx-dotnet-readme]]
 [^cp]: [[sources/2026-10-05-cyclonedx-dotnet-practice]]
+
+> 路線選擇與 CI 整合：使用者於簡報中傾向自家專案走 [[practices/dotnet-sbom-cyclonedx-trivy]]，本路線用於外部產物交叉檢查；見 [[practices/sbom-lifecycle-and-ci]]、[[analyses/sbom-practice-talk.marp]]。

@@ -132,3 +132,28 @@ updated: 2026-10-01
 - 結果：機械檢查全過（61 頁無失效連結、孤兒頁、frontmatter 缺欄；27 份 raw 皆已 ingest；index 來源數與 `sources` 一致）
 - 處理：[[tools/retire-js]] 頁首「尚無實測」改為含使用者腳本說明；[[tools/trivy]] 支援範圍補 SBOM 輸入的 .NET／前端用法
 - 備註：未處理——[[standards/cyclonedx]] 仍為 stub 且含 2024-02 的 ISO 說法；OWASP SCVS、in-toto、SARIF、KEV、CSAF、Sigstore、SCA 仍無專頁；`dotnet-CycloneDX --json` 與 `-F Json` 是否等價待查；法規一手來源（EO 14028、NTIA、CRA）仍缺
+
+## [2026-10-07] ingest | SBOM-實戰分享.marp.md（Clippings → raw/industry/）
+- 新增：[[sources/2026-10-07-sbom-practice-talk-deck]]、[[practices/sbom-lifecycle-and-ci]]
+- 更新：[[practices/dotnet-sbom-cyclonedx-trivy]]、[[practices/dotnet-sbom-syft-grype]]（路線選擇、交叉引用）、[[overview]]（論點 13，來源 28 份）、[[index]]
+- 備註：無矛盾。此簡報為本庫的衍生品，事實多已有其他來源，不作獨立佐證；僅 CI gate 建議、重掃迴圈、路線選擇為新增（作者建議，未實測）。
+
+## [2026-10-07] lint | 第七次健康檢查
+- 結果：機械檢查全過（63 頁無失效連結、孤兒頁、`sources` 路徑失效；28 份 raw 皆已 ingest；index 來源數與 `sources` 一致）。`index.md` 的 frontmatter 無 `sources`／`status`，屬索引頁慣例，未處理
+- 內容抽查：新簡報的 Heartbleed／NotPetya／SolarWinds／XZ、96%／70–90%、syft 1.52.0／grype 0.119.0／DB v6.1.9 皆與既有頁一致，無矛盾
+- 備註：未處理——Log4Shell 僅見於 [[concepts/software-supply-chain]] 一行，尚無專頁；[[standards/cyclonedx]] 仍為 stub；OWASP SCVS、in-toto、SARIF、KEV、CSAF、Sigstore、SCA、Dependency-Track 仍無專頁；法規一手來源（EO 14028、NTIA、CRA、CISA 2026）仍缺
+
+## [2026-10-07] schema | 簡報歸類修正：raw/industry → wiki/analyses
+- 原因：簡報由本庫提煉而成，屬衍生成品，不應放在 raw 來源層；依 Karpathy LLM Wiki 模式，查詢產出回存為 wiki 頁面
+- 移動：`raw/industry/SBOM-實戰分享.marp.md` → [[analyses/sbom-practice-talk.marp]]（補 frontmatter）
+- 刪除：`sources/2026-10-07-sbom-practice-talk-deck`（來源前提不成立；內容併入該分析頁與 [[practices/sbom-lifecycle-and-ci]]）
+- 更新：[[practices/sbom-lifecycle-and-ci]]、[[practices/dotnet-sbom-cyclonedx-trivy]]、[[practices/dotnet-sbom-syft-grype]]、[[overview]]（來源回復 27 份）、[[index]]
+- 備註：先前 ingest 紀錄中的來源頁與 raw 路徑已失效，以本筆為準。`slides/` 的 pptx 仍在 wiki 外，CLAUDE.md §3 尚未載明。
+
+## [2026-10-07] schema | CLAUDE.md 補 slides/ 與簡報慣例
+- 修改：§3 目錄樹新增 `slides/`（匯出成品，不 ingest／lint），`analyses/` 註明可放 `.marp.md`；§4.1 補簡報檔名慣例
+- 備註：對應 [[analyses/sbom-practice-talk.marp]] 與 `slides/` 的 pptx
+
+## [2026-10-07] schema | slides/ 更名為 outputs/
+- 修改：目錄 `slides/` → `outputs/`（涵蓋簡報、PDF、圖表等匯出成品）；CLAUDE.md §3、§4.1 與 [[index]] 同步更新
+- 備註：現有檔案 `outputs/sbom-practice-talk.pptx`，對應 [[analyses/sbom-practice-talk.marp]]

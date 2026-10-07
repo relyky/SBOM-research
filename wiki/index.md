@@ -55,6 +55,7 @@ updated: 2026-10-07
 - [[practices/sbom-file-naming|SBOM 檔案命名慣例]] — 製品檔名加 `.cdx.json`／`.spdx.json` 等副檔名（來源 4 份，draft）
 - [[practices/dotnet-sbom-syft-grype|.NET 專案以 syft + grype 產生 SBOM 並掃描]] — 掃發佈產物、指定名稱版本、注意 purl 限制，並列 sbom-tool、cyclonedx-dotnet 替代方案（來源 6 份，draft）
 - [[practices/dotnet-sbom-cyclonedx-trivy|.NET 以 dotnet-CycloneDX + trivy 產生 SBOM 並掃描（含前端 JS 合併）]] — 使用者腳本：弱點與授權報告、retire 掃前端、cyclonedx-cli 合併（來源 2 份，draft）
+- [[practices/sbom-lifecycle-and-ci|SBOM 生命週期與 CI/CD 整合]] — 六步流程、兩個迴圈、CI gate 建議與導入檢核清單（作者建議，衍生自簡報，draft）
 
 ## 來源摘要 Sources
 - [[sources/2026-10-01-openssf-sbom-naming|OpenSSF：SBOM 命名與目錄慣例]] — 業界指引
@@ -87,3 +88,4 @@ updated: 2026-10-07
 
 ## 分析 Analyses
 - [[analyses/syft-grype-vexctl-workflow|syft → grype → vexctl 使用順序]] — 三工具串接的 mermaid 活動流程圖（來源 3 份，draft）
+- [[analyses/sbom-practice-talk.marp|簡報：SBOM 實戰分享]] — 使用者自製 Marp 簡報（約 30 頁），由本庫整理而成；匯出的 pptx 在 `outputs/`（draft）

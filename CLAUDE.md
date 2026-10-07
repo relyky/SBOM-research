@@ -45,7 +45,8 @@ wiki/
   organizations/ 組織（CISA、NTIA、Linux Foundation、OWASP…）
   practices/     實務流程、導入方法、檢核清單
   sources/       每份原始資料一頁摘要
-  analyses/      查詢產出的比較表、分析、結論（從 Query 回存）
+  analyses/      查詢產出的比較表、分析、結論（從 Query 回存）；簡報原始檔（`.marp.md`）也放這裡
+outputs/         匯出成品（簡報 pptx、pdf、圖表等）；非來源、非 wiki 頁，不 ingest、不 lint
 ```
 
 ## 4. 頁面慣例
@@ -53,7 +54,7 @@ wiki/
 ### 4.1 檔名
 - 全小寫英文 kebab-case：`cyclonedx.md`、`ntia-minimum-elements.md`、`eu-cra.md`。
 - 來源摘要：`sources/YYYY-MM-DD-<短名>.md`（日期為 ingest 日）。
-- 分析：`analyses/<主題>.md`。
+- 分析：`analyses/<主題>.md`；簡報原始檔 `analyses/<主題>.marp.md`，匯出成品放 `outputs/`（同主檔名）。
 
 ### 4.2 Frontmatter（每頁必填，供 Obsidian Dataview 查詢）
 ```yaml

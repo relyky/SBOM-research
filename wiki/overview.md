@@ -39,6 +39,9 @@ status: draft
 
 12. **.NET 已有「專案檔 → CycloneDX → trivy」的腳本化流程**：使用者以 dotnet-CycloneDX 產 SBOM，由 [[tools/trivy]] 掃弱點與授權（排除 Microsoft 前綴套件），另用 retire 掃 libman 前端函式庫並以 [[tools/cyclonedx-cli]] 合併；retire 有覆蓋缺口（CSS、部分函式庫）。為腳本設計，產出品質未驗證。見 [[practices/dotnet-sbom-cyclonedx-trivy]]。[^s1][^s2]
 
+13. **SBOM 要持續運作，而非一次性產出**：每次建置重產，並在弱點 DB 更新後對既有 SBOM 重掃；CI gate 可擋「新增高風險弱點且無 VEX」「授權不核可」「格式驗證失敗」。此為使用者簡報的作者建議，非標準要求，多數指令未實測；簽章尚未實作。見 [[practices/sbom-lifecycle-and-ci]]。[^t]
+
+[^t]: [[analyses/sbom-practice-talk.marp|簡報：SBOM 實戰分享]]（本庫衍生品，非獨立來源）
 [^s1]: [[sources/2026-10-07-dotnet-sbom-scan-script]]
 [^s2]: [[sources/2026-10-07-dotnet-js-sbom-scan-script]]
 [^m1]: [[sources/2026-10-06-cyclonedx-org-github]]
