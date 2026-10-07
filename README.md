@@ -7,6 +7,7 @@
 |---|---|---|
 | `raw/` | 原始資料（PDF、網頁剪藏、規格書） | 你（放入後不再修改） |
 | `wiki/` | LLM 撰寫的知識頁 | LLM |
+| `outputs/` | 匯出成品（簡報 pptx、pdf、圖表等；原始檔在 `wiki/analyses/`，不 ingest） | 你 + LLM |
 | `CLAUDE.md` | 規則書（結構、慣例、流程） | 你 + LLM |
 | `templates/` | 各類頁面範本 | 你 + LLM |
 
