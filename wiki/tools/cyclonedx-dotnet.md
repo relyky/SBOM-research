@@ -3,12 +3,12 @@ title: CycloneDX for .NET（cyclonedx-dotnet）
 type: tool
 tags: [sbom, tool, cyclonedx, dotnet]
 aliases: [cyclonedx-dotnet, dotnet-CycloneDX, CycloneDX .NET tool]
-sources: [raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md]
+sources: [raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/dotnet-sbom-scan.sh]
 vendor: CycloneDX（GitHub 組織）
 license: Apache 2.0
 version_checked: 6.2.0（截至 2026-10，使用者實測安裝；預設規格版本 1.7）
 created: 2026-10-05
-updated: 2026-10-05
+updated: 2026-10-07
 status: stub
 ---
 
@@ -58,6 +58,8 @@ README 僅提到 GitHub Actions 情境下的 bearer token（`GITHUB_TOKEN`），
 ## 實測紀錄
 選用動機：使用者測得 [[tools/syft-grype|syft]] 拿不到 .NET 套件的授權資訊，無法快速檢查 license 是否核可，而本工具對 .NET 套件支援較完整。[^p]（本庫檢視 syft 實測 SBOM 亦無授權欄位；本工具實際授權輸出尚未檢視）
 
+腳本化：使用者以 `dotnet-CycloneDX WFAHRS.sln -o .sbom -fn <名>.cdx.json --json` 產出，再交給 [[tools/trivy]] 掃弱點與授權；此處用 `--json`，與上方 `-F Json` 寫法不同，兩者是否等價待查。[^sc] 見 [[practices/dotnet-sbom-cyclonedx-trivy]]。
+
 2026-10-05，工具版本 6.2.0：[^p]
 ```bash
 dotnet tool install --global CycloneDX      # 安裝後指令為 dotnet-CycloneDX
@@ -72,3 +74,4 @@ dotnet-CycloneDX QadbGraphQL.slnx -o .sbom -F Json -t -fn myproject-version-cdx.
 ## 參考來源
 [^s]: [[sources/2026-10-05-cyclonedx-dotnet-readme]]
 [^p]: [[sources/2026-10-05-cyclonedx-dotnet-practice]]
+[^sc]: [[sources/2026-10-07-dotnet-sbom-scan-script]]

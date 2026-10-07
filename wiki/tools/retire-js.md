@@ -2,7 +2,7 @@
 title: Retire.js
 type: tool
 tags: [sbom, tool, sca, javascript, cyclonedx, owasp-top10]
-sources: [raw/tools/RetireJS - repo.md, raw/tools/Retire.js - website.md]
+sources: [raw/tools/RetireJS - repo.md, raw/tools/Retire.js - website.md, raw/tools/dotnet-js-sbom-scan.sh]
 vendor: RetireJS 專案
 license: 來源未標示
 version_checked: 未標示（README 提及 CycloneDX 1.7 輸出；截至 2026-10 剪藏）
@@ -13,7 +13,7 @@ status: stub
 
 # Retire.js
 
-> 本頁僅依官方 README 與網站撰寫，尚無實測。
+> 本頁依官方 README 與網站撰寫；另有使用者腳本的用法紀錄，但無實跑輸出，元件清單差異尚未實測。
 
 ## 用途與定位
 SCA 掃描器，偵測網頁與 Node.js 應用程式中「含已知漏洞版本」的 JavaScript 函式庫與 Node 模組；較新版本也能把找到的函式庫輸出為 CycloneDX SBOM。[^r][^w] 特點是能辨識不在套件清單內、直接下載放進版控的 JS 檔。[^r]
@@ -46,8 +46,9 @@ retire --exitwith 0                      # 發現漏洞時不以 13 結束
 網站列出約 730 列「函式庫＋版本區間＋連結＋摘要」，連結以 GitHub Advisory（GHSA）約 583 筆為主，NVD 的 [[concepts/cve|CVE]] 約 64 筆。[^w]（筆數為本次對剪藏表格的粗略統計）
 
 ## 實測紀錄
-（尚無）
+使用者腳本用 `retire --path WFAHRS/wwwroot/lib --outputformat cyclonedxJSON --outputpath <檔>` 掃 libman 管理的前端函式庫，並以 `|| true` 吞掉 exit 13。使用者記錄的覆蓋缺口：animate.css（CSS）不掃；print-js、viewerjs 可能辨識不到。輸出再與 .NET SBOM 合併，見 [[practices/dotnet-sbom-cyclonedx-trivy]]。[^sc]
 
 ## 參考來源
 [^r]: [[sources/2026-10-02-retirejs-repo]]
 [^w]: [[sources/2026-10-02-retirejs-website]]
+[^sc]: [[sources/2026-10-07-dotnet-js-sbom-scan-script]]

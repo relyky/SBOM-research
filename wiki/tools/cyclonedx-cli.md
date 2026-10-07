@@ -3,12 +3,12 @@ title: CycloneDX CLI
 type: tool
 tags: [sbom, tool, cyclonedx]
 aliases: [cyclonedx-cli]
-sources: [raw/tools/CycloneDX CLI tool for SBOM.md]
+sources: [raw/tools/CycloneDX CLI tool for SBOM.md, raw/tools/dotnet-js-sbom-scan.sh]
 vendor: CycloneDX（GitHub 組織）
 license: Apache 2.0
 version_checked: 未查證（README 未標版本，剪藏於 2026-10；支援規格至 v1.7）
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 status: stub
 ---
 
@@ -47,7 +47,8 @@ cyclonedx-cli keygen && cyclonedx-cli sign bom bom.json
   - 差異／驗證的語意深度與 [[tools/sbom-tools]] 相比較淺（本庫推論，待實測）。
 
 ## 實測紀錄
-（尚無）
+使用者腳本在 Windows 以執行檔名 `cyclonedx-win-x64 merge --input-files <.NET SBOM> <retire SBOM> --output-file <合併檔> --output-format json`，把 dotnet-CycloneDX 與 retire 的輸出合併後交給 trivy；合併後的 `bom-ref` 衝突與 metadata 處理尚未檢視。[^sc] 見 [[practices/dotnet-sbom-cyclonedx-trivy]]。
 
 ## 參考來源
 [^s]: [[sources/2026-10-06-cyclonedx-cli-readme]]
+[^sc]: [[sources/2026-10-07-dotnet-js-sbom-scan-script]]

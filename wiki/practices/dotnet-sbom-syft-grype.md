@@ -4,7 +4,7 @@ type: practice
 tags: [sbom, practice, dotnet, syft, grype]
 sources: [raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/Microsoft sbom-tool.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/assets/publish.grype.json]
 created: 2026-10-01
-updated: 2026-10-05
+updated: 2026-10-07
 status: draft
 ---
 
@@ -33,6 +33,8 @@ status: draft
 - [[tools/microsoft-sbom-tool|Microsoft sbom-tool]]：以 `-bc` 掃 `*.csproj` 等專案檔、`-b` 雜湊出貨檔案，輸出 SPDX 2.2／3.0，可作為 .NET 工具安裝並含 validate。與 syft 的元件清單是否一致，尚未實測。[^t]
 
 - [[tools/cyclonedx-dotnet|CycloneDX for .NET]]：`dotnet-CycloneDX <sln/csproj> -o <dir>` 從專案檔經 `dotnet restore` 解析依賴，輸出 CycloneDX 1.7；可用 `-ef` 排除不在出貨輸出的套件。使用者實測（6.2.0）：`dotnet-CycloneDX X.slnx -o .sbom -F Json -t -fn <檔名>`，預設輸出 XML、`-F Json` 才輸出 JSON；但未檢視 BOM 內容，與 syft 的元件清單是否一致尚未比較。[^c][^cp]
+
+- 另一條以專案檔為輸入、用 trivy 掃弱點與授權並可合併前端 JS 的路線，見 [[practices/dotnet-sbom-cyclonedx-trivy]]。
 
 ## 角色與責任
 未定（來源為個人實測；導入時需明定由誰在 CI 產生、誰審閱結果）。

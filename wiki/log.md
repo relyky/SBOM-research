@@ -122,3 +122,13 @@ updated: 2026-10-01
 - 結果：機械檢查全過（58 頁無失效連結、孤兒頁；25 份 raw 皆已 ingest；來源頁原文引句對照 raw 無誤，12 處標示為連結格式／弧形引號誤判）
 - 處理：[[tools/retire-js]] 補與 [[tools/cyclonedx-npm]] 分工的待實測說明；[[concepts/purl]] 補 `--short-PURLs` 資訊損失（來源 4 份）；[[index]] 移除工具區多餘空行
 - 備註：未處理——[[standards/cyclonedx]] 仍為 stub 且含 2024-02 的 ISO 說法；OWASP SCVS、in-toto、SARIF、KEV、CSAF、Sigstore 仍無專頁；npm／React 實務流程待實測
+
+## [2026-10-07] ingest | dotnet-sbom-scan.sh、dotnet-js-sbom-scan.sh（Clippings → raw/tools/）
+- 新增：[[sources/2026-10-07-dotnet-sbom-scan-script]]、[[sources/2026-10-07-dotnet-js-sbom-scan-script]]、[[practices/dotnet-sbom-cyclonedx-trivy]]
+- 更新：[[tools/trivy]]（`trivy sbom` 掃弱點與授權）、[[tools/cyclonedx-dotnet]]、[[tools/cyclonedx-cli]]（merge 實務）、[[tools/retire-js]]（覆蓋缺口）、[[practices/dotnet-sbom-syft-grype]]（交叉引用）、[[overview]]（論點 12，來源 27 份）、[[index]]
+- 備註：無矛盾。待查——腳本用 `dotnet-CycloneDX --json`，與實測筆記的 `-F Json` 是否等價；未見實跑輸出，trivy 的 .NET／前端授權與弱點比對品質未驗證。
+
+## [2026-10-07] lint | 第六次健康檢查與修正
+- 結果：機械檢查全過（61 頁無失效連結、孤兒頁、frontmatter 缺欄；27 份 raw 皆已 ingest；index 來源數與 `sources` 一致）
+- 處理：[[tools/retire-js]] 頁首「尚無實測」改為含使用者腳本說明；[[tools/trivy]] 支援範圍補 SBOM 輸入的 .NET／前端用法
+- 備註：未處理——[[standards/cyclonedx]] 仍為 stub 且含 2024-02 的 ISO 說法；OWASP SCVS、in-toto、SARIF、KEV、CSAF、Sigstore、SCA 仍無專頁；`dotnet-CycloneDX --json` 與 `-F Json` 是否等價待查；法規一手來源（EO 14028、NTIA、CRA）仍缺
