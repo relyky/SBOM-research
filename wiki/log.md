@@ -112,3 +112,13 @@ updated: 2026-10-01
 - 結果：機械檢查全過（無失效連結、孤兒頁，`sources` 路徑與 index 來源數一致）
 - 處理：[[tools/sbom-tools]]、[[tools/microsoft-sbom-tool]] 的「不產生 SBOM」無來源，改為「README 未列 SBOM 產生功能（待驗證）」
 - 備註：SCA／KEV／CSAF／Sigstore／SARIF／CBOM 仍無專頁；CISA 2026 最低要素仍待原文
+
+## [2026-10-07] ingest | @cyclonedx/cyclonedx-npm README（Clippings → raw/tools/）
+- 新增：[[sources/2026-10-07-cyclonedx-npm-readme]]、[[tools/cyclonedx-npm]]
+- 更新：[[standards/cyclonedx]]（1.6 預設、1.2–1.6 可選、工具清單）、[[overview]]（論點 10 補 npm 路線，來源 25 份）、[[index]]
+- 備註：無矛盾。預設規格 1.6 低於 cyclonedx-dotnet 的 1.7，屬工具差異。僅讀文件，未實測；「最準確、完整」為廠商自評；pnpm／yarn 支援待驗證。
+
+## [2026-10-07] lint | 第五次健康檢查與修正
+- 結果：機械檢查全過（58 頁無失效連結、孤兒頁；25 份 raw 皆已 ingest；來源頁原文引句對照 raw 無誤，12 處標示為連結格式／弧形引號誤判）
+- 處理：[[tools/retire-js]] 補與 [[tools/cyclonedx-npm]] 分工的待實測說明；[[concepts/purl]] 補 `--short-PURLs` 資訊損失（來源 4 份）；[[index]] 移除工具區多餘空行
+- 備註：未處理——[[standards/cyclonedx]] 仍為 stub 且含 2024-02 的 ISO 說法；OWASP SCVS、in-toto、SARIF、KEV、CSAF、Sigstore 仍無專頁；npm／React 實務流程待實測

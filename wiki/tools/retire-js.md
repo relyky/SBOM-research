@@ -7,7 +7,7 @@ vendor: RetireJS 專案
 license: 來源未標示
 version_checked: 未標示（README 提及 CycloneDX 1.7 輸出；截至 2026-10 剪藏）
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-10-07
 status: stub
 ---
 
@@ -37,7 +37,7 @@ retire --exitwith 0                      # 發現漏洞時不以 13 結束
 
 ## 優缺點
 - 優：專精前端 JS，可抓 vendored 檔案；有 Burp／ZAP 外掛與瀏覽器擴充可用於滲透測試與手動檢查。[^r][^w]
-- 缺：僅涵蓋 JavaScript；漏洞資料來源與更新機制來源未說明；SBOM 功能網站未提及，僅見於 README。[^r][^w]
+- 缺：僅涵蓋 JavaScript；與官方 [[tools/cyclonedx-npm]]（由 npm 依賴樹產生 BOM）的分工與清單差異尚未實測（對照為本庫推論）；漏洞資料來源與更新機制來源未說明；SBOM 功能網站未提及，僅見於 README。[^r][^w]
 
 > [!warning] 矛盾
 > Firefox 擴充套件：[[sources/2026-10-02-retirejs-website|官方網站]]列為四大組成之一；[[sources/2026-10-02-retirejs-repo|GitHub README]] 標為 **Deprecated**。Chrome 擴充套件在 README 註明「不在 Chrome 商店正式上架」，網站未提。判斷：網站內容較舊，以 README 為準。

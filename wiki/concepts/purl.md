@@ -3,9 +3,9 @@ title: purl（Package URL）
 type: concept
 tags: [sbom, concept, component-identification]
 aliases: [purl, Package URL, pkg URL]
-sources: [raw/tools/vexctl.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json]
+sources: [raw/tools/vexctl.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/tools/cyclonedx-npm.md]
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-10-07
 status: stub
 ---
 
@@ -34,6 +34,7 @@ status: stub
 
 ## 實務注意事項
 - .NET 專案：`dotnet-sbom-syft-grype` 流程建議檢查 SBOM 元件是否皆有 purl，並清點無 purl 者；實測 176 個元件中 6 個 `application` 元件無 purl。見 [[practices/dotnet-sbom-syft-grype]]。[^s]
+- [[tools/cyclonedx-npm]] 的 `--short-PURLs` 會移除所有 qualifier，換取較短字串；README 明言「causes information loss」。[^n]
 - 同一套件可能出現名稱寫法不同的多筆 purl（實測有 `Aspect Injector` 與 `AspectInjector` 兩筆）。[^p]
 
 ## 開放問題
@@ -45,3 +46,4 @@ status: stub
 [^p]: raw/assets/publish.sbom.cdx.json
 [^s]: [[sources/2026-10-01-syft-grype-dotnet-sample]]
 [^v]: [[sources/2026-10-02-openvex-vexctl-readme]]
+[^n]: [[sources/2026-10-07-cyclonedx-npm-readme]]

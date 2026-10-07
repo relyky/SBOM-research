@@ -3,7 +3,7 @@ title: 知識庫目錄
 type: overview
 tags: [index]
 created: 2026-10-01
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 
 # 知識庫目錄（Index）
@@ -11,7 +11,7 @@ updated: 2026-10-06
 > LLM 回答問題時先讀本頁。每次 ingest 後更新。格式：`- [[路徑|名稱]] — 一句話摘要（來源數，狀態）`
 
 ## 總覽
-- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（24，draft）
+- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（25，draft）
 - [[log|知識庫紀錄]] — 所有 ingest / query / lint 的時序紀錄
 
 ## 概念 Concepts
@@ -19,12 +19,12 @@ updated: 2026-10-06
 - [[concepts/sbom-types|SBOM 類型]] — CISA 定義的六種 SBOM 類型與優缺點（來源 2 份，draft）
 - [[concepts/software-supply-chain|軟體供應鏈]] — 定義、攻擊案例與三大安全屬性（來源 3 份，draft）
 - [[concepts/vex|VEX]] — 漏洞可利用性交換，三種實作、OpenVEX 結構與 Trivy／vexctl／sbom-tools 流程（來源 5 份，draft）
-- [[concepts/purl|purl]] — Package URL，元件識別字串；grype 比對與 OpenVEX 產品識別的鍵（來源 3 份，stub）
+- [[concepts/purl|purl]] — Package URL，元件識別字串；grype 比對與 OpenVEX 產品識別的鍵（來源 4 份，stub）
 - [[concepts/cve|CVE]] — 公共漏洞編號系統、CNA 制度與資金風險（來源 4 份，draft）
 
 ## 標準與格式 Standards
 - [[standards/spdx|SPDX]] — SBOM 格式，ISO/IEC 5962，有 2.2、3.0 版（來源 7 份，stub）
-- [[standards/cyclonedx|CycloneDX]] — OWASP 提出的 SBOM 格式，ECMA-424，涵蓋 SBOM／VEX／CBOM 等 10 類 BOM（來源 12 份，stub）
+- [[standards/cyclonedx|CycloneDX]] — OWASP 提出的 SBOM 格式，ECMA-424，涵蓋 SBOM／VEX／CBOM 等 10 類 BOM（來源 13 份，stub）
 - [[standards/swid|SWID]] — ISO/IEC 19770-2 軟體識別標籤，NIST 推廣（來源 3 份，draft）
 
 ## 工具 Tools
@@ -33,8 +33,8 @@ updated: 2026-10-06
 - [[tools/vexctl|vexctl]] — OpenVEX 專案的 CLI，建立／合併／驗證／簽證 VEX 並過濾 SARIF（來源 1 份，stub）
 - [[tools/retire-js|Retire.js]] — 專精 JavaScript 函式庫的漏洞掃描器，可輸出 CycloneDX（含 VEX 變體）（來源 2 份，stub）
 - [[tools/syft-grype|Syft / Grype]] — Anchore 開源 SBOM 產生、弱點與授權掃描工具，含 .NET 實測與授權資訊限制（來源 8 份，draft）
-
 - [[tools/cyclonedx-dotnet|CycloneDX for .NET]] — 由 .NET 方案／專案檔產生 CycloneDX BOM 的官方工具，預設規格 1.7，含 6.2.0 基本實測（來源 2 份，stub）
+- [[tools/cyclonedx-npm|CycloneDX for npm]] — 由 npm 專案產生 CycloneDX BOM 的官方工具，預設規格 1.6，可只讀 lockfile，不去重（來源 1 份，stub）
 - [[tools/cyclonedx-cli|CycloneDX CLI]] — 官方 CLI：驗證、合併、差異、轉換（含 SPDX）、簽章驗簽（來源 1 份，stub）
 - [[tools/sbom-tools|sbom-tools]] — 第三方 Rust 工具：語意 diff、品質評分、16 種合規驗證、機群查詢；非 Microsoft sbom-tool（來源 1 份，stub）
 
@@ -80,6 +80,7 @@ updated: 2026-10-06
 - [[sources/2026-10-06-cyclonedx-org-github|CycloneDX BOM Standard（GitHub 組織首頁）]] — 官方一手（概覽）
 - [[sources/2026-10-06-cyclonedx-cli-readme|CycloneDX/cyclonedx-cli README]] — 官方一手
 - [[sources/2026-10-06-sbom-tools-readme|sbom-tool/sbom-tools README]] — 官方一手（第三方工具）
+- [[sources/2026-10-07-cyclonedx-npm-readme|@cyclonedx/cyclonedx-npm README]] — 官方一手
 
 ## 分析 Analyses
 - [[analyses/syft-grype-vexctl-workflow|syft → grype → vexctl 使用順序]] — 三工具串接的 mermaid 活動流程圖（來源 3 份，draft）
