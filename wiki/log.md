@@ -182,3 +182,8 @@ updated: 2026-10-01
 - 修正：[[analyses/sbom-practice-talk.marp]] 的 `affected` 說明由「需修補」改為「需處置（修補、緩解或告知）」，以符合兩份新來源；[[sources/2026-10-01-aqua-what-is-vex]]、[[sources/2026-10-02-openvex-vexctl-readme]] 的待追問題註記已回答部分；[[overview]] 首次填入「知識缺口」
 - 新增：[[concepts/vdr]]（stub），並由 [[concepts/vex]] 連入
 - 未處理：`not_affected` 定義矛盾待一手規格；[[standards/cyclonedx]] 的 2024-02 ISO 說法待規格本文；CSAF 等概念暫不建頁；pptx 未同步本次 marp 修改
+
+## [2026-11-03] query | SBOM 簽章：誰來簽、簽什麼
+- 新增：[[analyses/sbom-signing-who-signs]]
+- 更新：[[index]]
+- 備註：釐清簡報「可見性 ≠ 完整性」一句中的簽章為工具面數位簽章，非行政面負責人簽署；Sigstore／SLSA／in-toto 細節與 CISA attestation form、CRA 符合性聲明皆為背景知識（待驗證），待 ingest 一手來源。

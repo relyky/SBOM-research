@@ -95,4 +95,5 @@ updated: 2026-11-03
 
 ## 分析 Analyses
 - [[analyses/syft-grype-vexctl-workflow|syft → grype → vexctl 使用順序]] — 三工具串接的 mermaid 活動流程圖（來源 3 份，draft）
+- [[analyses/sbom-signing-who-signs|SBOM 簽章：誰來簽、簽什麼]] — 工具面數位簽章 vs. 行政面合規聲明、各對象簽署者、金鑰模式與落地建議（來源 6 份，draft）
 - [[analyses/sbom-practice-talk.marp|簡報：SBOM 實戰分享]] — 使用者自製 Marp 簡報（約 30 頁），由本庫整理而成；匯出的 pptx 在 `outputs/`（draft）
