@@ -274,7 +274,7 @@ grype 只比對有 purl 的套件，沒有 purl 的元件根本不在掃描範�
 | 狀態 | 意義 |
 |---|---|
 | `not_affected` | 不受影響，必須附理由 |
-| `affected` | 受影響，需修補 |
+| `affected` | 受影響，需處置（修補、緩解或告知） |
 | `fixed` | 已修補 |
 | `under_investigation` | 調查中，之後再更新 |
 

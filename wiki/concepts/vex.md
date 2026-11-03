@@ -40,7 +40,7 @@ status: draft
 > 兩者對「元件不存在」是否屬 not_affected 看法不同（Handbook 的研判問題第 1 題把「元件不存在」當成 SBOM 比對誤判處理）。以 OpenVEX／CSAF／CISA 規格原文為準，待驗證。
 
 - **三種實作**：OpenVEX、CSAF VEX、CycloneDX VEX；語法不同，可傳達相同基本資訊。[^a] CSAF 是 OASIS 標準，有 VEX profile；OpenVEX 是 OpenSSF 的獨立精簡格式；CycloneDX VEX 可與 SBOM 同檔，也可另檔指向 SBOM，狀態名稱自成一套（如 `not_affected`、`exploitable`、`resolved`、`in_triage`）。[^se]
-- **VDR**：VDR（Vulnerability Disclosure Report）列出產品所有已知漏洞與供應商分析；VEX 主要說明哪些漏洞「不」影響產品；VDR 可包含 VEX 資訊。[^se]
+- **[[concepts/vdr|VDR]]**：VDR（Vulnerability Disclosure Report）列出產品所有已知漏洞與供應商分析；VEX 主要說明哪些漏洞「不」影響產品；VDR 可包含 VEX 資訊。[^se]
 - **CISA 最低要求**：CISA 發布了三種格式都能滿足的 VEX 最低要求（原文未蒐集）。[^se]
 - **法規地位**：[[regulations/eu-cra|CRA]] 並未把 VEX 定為唯一允許的溝通格式。[^h]
 - **CycloneDX VEX 範例**：以 `vulnerabilities[].analysis` 描述；範例為 `state: not_affected`、`justification: code_not_reachable`、`response: [will_not_fix, update]`。`affects.ref` 需對應 SBOM 的 serialNumber、version 與 bom-ref（如 purl）。[^a]
@@ -56,7 +56,7 @@ status: draft
 - **類型脈絡**：CISA 認為 VEX 的進展可能促成新的 [[concepts/sbom-types|SBOM 類型]]。[^t]
 
 ## 相關概念
-- [[concepts/sbom]]、[[concepts/cve]]、[[standards/cyclonedx]]
+- [[concepts/sbom]]、[[concepts/cve]]、[[concepts/vdr]]、[[standards/cyclonedx]]
 
 ## 實務注意事項
 - 容器與 Kubernetes 生態系對 VEX 的採用動能明顯。[^a]

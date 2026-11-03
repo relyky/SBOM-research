@@ -7,7 +7,7 @@ source_url: https://www.aquasec.com/cloud-native-academy/vulnerability-managemen
 source_author: The Cloud Native Experts（Aqua Security）
 source_date: 2024-07-30
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-11-03
 status: draft
 ---
 
@@ -44,5 +44,5 @@ status: draft
 
 ## 待追問題
 - OpenVEX、CSAF VEX 的規格與差異需一手來源。
-- VEX 狀態值完整列表（本文只示範 `not_affected`）。
+- ~~VEX 狀態值完整列表（本文只示範 `not_affected`）。~~ → 已由 [[sources/2026-11-03-sbomse-what-is-vex]] 補上四種狀態（2026-11-03）。
 - VEX Hub 的涵蓋範圍與可信度。

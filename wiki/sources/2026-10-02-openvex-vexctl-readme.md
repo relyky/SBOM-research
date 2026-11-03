@@ -7,7 +7,7 @@ source_url: https://github.com/openvex/vexctl
 source_author: OpenVEX 專案
 source_date: 未標示（剪藏於 2026-10-02；內文範例時間為 2023，並提及 OpenVEX v0.2.0）
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-11-03
 status: draft
 ---
 
@@ -46,7 +46,7 @@ status: draft
 - 新增：OpenVEX 狀態值（`not_affected`／`under_investigation`／`fixed`）與驗證規則的一手說明；VEX 以 sigstore 簽證並附加到容器映像的做法；`filter` 以 SARIF 為介面。
 
 ## 待追問題
-- OpenVEX 規格本身（`affected` 狀態、完整 justification 清單）尚無一手來源。
+- OpenVEX 規格本身（`affected` 狀態、完整 justification 清單）尚無一手來源。（2026-11-03：`affected` 語意已有二手說法，見 [[sources/2026-11-03-sbomse-what-is-vex]]；一手規格仍缺）
 - Trivy／Grype 套用 OpenVEX 的實際行為與 vexctl `filter` 是否一致？
 - 是否值得在 .NET 實測中加入 VEX 流程（syft → grype → vexctl）？
 

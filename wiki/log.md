@@ -177,3 +177,8 @@ updated: 2026-10-01
 - 更新：[[concepts/vex]]（四種狀態與所需證據、not_affected 理由、SBOM／VEX 生命週期、VDR、CSAF、CISA VEX 最低要求）、[[standards/cyclonedx]]（VEX 狀態名稱、同檔／分檔）、[[organizations/openssf]]（OpenVEX）、[[organizations/cisa]]（VEX 最低要求）、[[practices/sbom-lifecycle-and-ci]]（交叉連結、CI artifact 過期陷阱）、[[overview]]（論點 14、15，來源 30 份）、[[index]]
 - 備註：發現矛盾——Handbook 定義 `not_affected` 為「元件存在但產品不受影響」，sbom.se 卻把「元件不在產品中」列為 not_affected 理由；已於 [[concepts/vex]] 加 warning，待 OpenVEX／CSAF／CISA 原文裁定。兩份來源由 `Clippings/` 移入 `raw/industry/`。
 
+## [2026-11-03] lint | 第九次健康檢查
+- 結果：機械檢查全過（69 頁無孤兒頁、失效連結、腳註錯誤；`raw/` 皆已 ingest）；log 指向已刪除來源頁、index／log 缺欄位為誤報
+- 修正：[[analyses/sbom-practice-talk.marp]] 的 `affected` 說明由「需修補」改為「需處置（修補、緩解或告知）」，以符合兩份新來源；[[sources/2026-10-01-aqua-what-is-vex]]、[[sources/2026-10-02-openvex-vexctl-readme]] 的待追問題註記已回答部分；[[overview]] 首次填入「知識缺口」
+- 新增：[[concepts/vdr]]（stub），並由 [[concepts/vex]] 連入
+- 未處理：`not_affected` 定義矛盾待一手規格；[[standards/cyclonedx]] 的 2024-02 ISO 說法待規格本文；CSAF 等概念暫不建頁；pptx 未同步本次 marp 修改

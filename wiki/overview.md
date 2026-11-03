@@ -97,4 +97,9 @@ status: draft
 - [ ] 企業導入案例、實務經驗分享
 
 ## 知識缺口
-- （由 lint 填入）
+（2026-11-03 lint 填入）
+- **一手規格缺口**：CISA《Minimum Requirements for VEX》、OpenVEX spec、CSAF 2.0 VEX profile 皆未蒐集；[[concepts/vex]] 的 `not_affected` 定義矛盾需靠這些原文裁定。
+- **法規原文缺口**：EO 14028、NTIA 最低要素、CRA（EUR-Lex 2024/2847）、BSI TR-03183、ETSI EN 304 623 仍只有二手轉述。
+- **過時說法**：[[standards/cyclonedx]] 仍引用資策會 2024-02「尚未取得 ISO 認證」，且有 14 份來源卻仍是 stub，需規格本文更新。
+- **缺專頁的概念**：CSAF、SCA、NVD、SARIF、Sigstore、in-toto、KEV、Dependency-Track、Log4Shell 散見多頁但無專頁。
+- **簡報與匯出檔不一致**：[[analyses/sbom-practice-talk.marp]] 與 `outputs/sbom-practice-talk.pptx` 的文字已分歧（見 [[log]] 2026-10-28）。

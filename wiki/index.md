@@ -18,6 +18,7 @@ updated: 2026-11-03
 - [[concepts/sbom|SBOM]] — 軟體物料清單核心概念、用途、採用現況與趨勢（來源 6 份，draft）
 - [[concepts/sbom-types|SBOM 類型]] — CISA 定義的六種 SBOM 類型與優缺點（來源 2 份，draft）
 - [[concepts/software-supply-chain|軟體供應鏈]] — 定義、攻擊案例與三大安全屬性（來源 3 份，draft）
+- [[concepts/vdr|VDR]] — 漏洞揭露報告，列出產品全部已知漏洞與供應商分析，可包含 VEX（來源 2 份，stub）
 - [[concepts/vex|VEX]] — 漏洞可利用性交換，四種狀態與所需證據、VDR、三種實作、OpenVEX 結構與 Trivy／vexctl／sbom-tools 流程；含 not_affected 定義矛盾（來源 7 份，draft）
 - [[concepts/purl|purl]] — Package URL，元件識別字串；grype 比對與 OpenVEX 產品識別的鍵（來源 4 份，stub）
 - [[concepts/cve|CVE]] — 公共漏洞編號系統、CNA 制度與資金風險（來源 4 份，draft）
