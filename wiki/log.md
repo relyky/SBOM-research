@@ -171,3 +171,9 @@ updated: 2026-10-01
 ## [2026-10-28] query | outputs/sbom-practice-talk.pptx 版面潤稿
 - 修改：`outputs/sbom-practice-talk.pptx`（僅版面，不改文字）——主題繁中字型對應由新細明體改為微軟正黑體；第 4 頁「說文解字」移除 `###` 標記、改用段距、標題對齊並補頁碼；第 2 頁調整提問區塊間距
 - 備註：使用者先前直接在 pptx 新增第 4 頁並修改第 2、9、10、13、14、28 頁文字，尚未回寫 [[analyses/sbom-practice-talk.marp]]，兩者內容已不一致。outputs/ 非 wiki 頁，無類型可對應，暫記為 query。
+
+## [2026-11-03] ingest | SBOM & VEX Workflows（Secure by Design Handbook）、What is VEX?（sbom.se）
+- 新增：[[sources/2026-11-03-securebydesign-sbom-vex-workflows]]、[[sources/2026-11-03-sbomse-what-is-vex]]、[[practices/vulnerability-triage-and-vex]]、[[regulations/eu-cra]]（stub，二手轉述）
+- 更新：[[concepts/vex]]（四種狀態與所需證據、not_affected 理由、SBOM／VEX 生命週期、VDR、CSAF、CISA VEX 最低要求）、[[standards/cyclonedx]]（VEX 狀態名稱、同檔／分檔）、[[organizations/openssf]]（OpenVEX）、[[organizations/cisa]]（VEX 最低要求）、[[practices/sbom-lifecycle-and-ci]]（交叉連結、CI artifact 過期陷阱）、[[overview]]（論點 14、15，來源 30 份）、[[index]]
+- 備註：發現矛盾——Handbook 定義 `not_affected` 為「元件存在但產品不受影響」，sbom.se 卻把「元件不在產品中」列為 not_affected 理由；已於 [[concepts/vex]] 加 warning，待 OpenVEX／CSAF／CISA 原文裁定。兩份來源由 `Clippings/` 移入 `raw/industry/`。
+

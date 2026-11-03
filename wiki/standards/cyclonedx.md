@@ -3,11 +3,11 @@ title: CycloneDX
 type: standard
 tags: [sbom, standard]
 aliases: [CDX, ECMA-424]
-sources: [raw/standards/CycloneDX BOM Standard.md, raw/tools/CycloneDX CLI tool for SBOM.md, raw/tools/sbom-tools.md, raw/tools/clonedx-dotnet.md, raw/tools/cyclonedx-npm.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/tools/SBOM Generation.md, raw/tools/RetireJS - repo.md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/standards/CycloneDX BOM Standard.md, raw/tools/CycloneDX CLI tool for SBOM.md, raw/tools/sbom-tools.md, raw/tools/clonedx-dotnet.md, raw/tools/cyclonedx-npm.md, raw/tools/syft-grype.sample.md, raw/assets/publish.sbom.cdx.json, raw/tools/SBOM Generation.md, raw/tools/RetireJS - repo.md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體供應鏈 - 維基百科，自由的百科全書.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md, raw/industry/What is VEX.md]
 current_version: 至少 1.7（2026-10 實測 syft 1.52.0 產出的 `specVersion`；是否為最新版待一手規格）
 maintainer: OWASP（依中文維基與資策會 2024-02 文章）
 created: 2026-10-01
-updated: 2026-10-07
+updated: 2026-11-03
 status: stub
 ---
 
@@ -35,7 +35,7 @@ OWASP 提出的 SBOM 格式，建立之初即專為 SBOM 設計。[^s4][^m] 官�
 ## 資料模型與核心欄位
 - JSON 以 `components[]` 列出元件（對照 SPDX 為 `packages[]`）。[^sg]
 - 實測檔含 `metadata.component`（被描述的主體）、`metadata.tools`、各元件的 `purl`、`cpe` 與 `properties`。[^p]
-- 支援 VEX：以 `vulnerabilities[].analysis` 描述可利用性，見 [[concepts/vex]]。[^a]
+- 支援 VEX：以 `vulnerabilities[].analysis` 描述可利用性，見 [[concepts/vex]]。[^a] VEX 可與 SBOM 放同一份文件，也可另檔指向 SBOM；狀態名稱自成一套，如 `not_affected`、`exploitable`、`resolved`、`in_triage`。[^se]
 - 支援的 BOM 類型：SBOM、SaaSBOM、HBOM、ML-BOM、CBOM、MBOM、OBOM、VDR、VEX、CDXA（Attestations）。[^o] 各類型的欄位結構待規格本文。
 - CBOM 以 `cryptoProperties`（演算法、憑證、金鑰、協定）描述密碼學資產；CDXA 以 `declarations`（assessors、attestations、claims、evidence、affirmation）描述證明。[^st]
 
@@ -73,3 +73,4 @@ JSON（`.cdx.json`）、XML（`.cdx.xml`），檔名慣例見 [[practices/sbom-f
 [^st]: [[sources/2026-10-06-sbom-tools-readme]]
 [^s1]: [[sources/2026-10-01-openssf-sbom-naming]]
 [^s4]: [[sources/2026-10-01-wikipedia-zh-software-supply-chain]]
+[^se]: [[sources/2026-11-03-sbomse-what-is-vex]]

@@ -3,7 +3,7 @@ title: 知識庫目錄
 type: overview
 tags: [index]
 created: 2026-10-01
-updated: 2026-10-12
+updated: 2026-11-03
 ---
 
 # 知識庫目錄（Index）
@@ -11,14 +11,14 @@ updated: 2026-10-12
 > LLM 回答問題時先讀本頁。每次 ingest 後更新。格式：`- [[路徑|名稱]] — 一句話摘要（來源數，狀態）`
 
 ## 總覽
-- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（28，draft）
+- [[overview|SBOM 研究總覽]] — 研究問題、目前論點、來源蒐集路線圖（30，draft）
 - [[log|知識庫紀錄]] — 所有 ingest / query / lint 的時序紀錄
 
 ## 概念 Concepts
 - [[concepts/sbom|SBOM]] — 軟體物料清單核心概念、用途、採用現況與趨勢（來源 6 份，draft）
 - [[concepts/sbom-types|SBOM 類型]] — CISA 定義的六種 SBOM 類型與優缺點（來源 2 份，draft）
 - [[concepts/software-supply-chain|軟體供應鏈]] — 定義、攻擊案例與三大安全屬性（來源 3 份，draft）
-- [[concepts/vex|VEX]] — 漏洞可利用性交換，三種實作、OpenVEX 結構與 Trivy／vexctl／sbom-tools 流程（來源 5 份，draft）
+- [[concepts/vex|VEX]] — 漏洞可利用性交換，四種狀態與所需證據、VDR、三種實作、OpenVEX 結構與 Trivy／vexctl／sbom-tools 流程；含 not_affected 定義矛盾（來源 7 份，draft）
 - [[concepts/purl|purl]] — Package URL，元件識別字串；grype 比對與 OpenVEX 產品識別的鍵（來源 4 份，stub）
 - [[concepts/cve|CVE]] — 公共漏洞編號系統、CNA 制度與資金風險（來源 4 份，draft）
 
@@ -40,11 +40,12 @@ updated: 2026-10-12
 
 ## 法規與政策 Regulations
 - [[regulations/eo-14028|EO 14028]] — 美國 2021 年行政命令，催生 SBOM 最低要素（來源 3 份，stub）
+- [[regulations/eu-cra|歐盟 CRA]] — 據轉述，附件 I 要求製造商以 SBOM 記錄元件，未限定 VEX 格式；原文待蒐集（來源 2 份，stub）
 - [[regulations/ntia-minimum-elements|NTIA 最低要素]] — 三大類與七項資料欄位，附 CISA 2026 後繼版（待驗證）（來源 4 份，draft）
 
 ## 組織 Organizations
-- [[organizations/openssf|OpenSSF]] — SBOM Catalog 發布者（來源 2 份，stub）
-- [[organizations/cisa|CISA]] — 發布 SBOM 類型指引的美國機關（來源 2 份，stub）
+- [[organizations/openssf|OpenSSF]] — SBOM Catalog 發布者、OpenVEX 專案所屬（來源 3 份，stub）
+- [[organizations/cisa|CISA]] — 發布 SBOM 類型指引與 VEX 最低要求的美國機關（來源 3 份，stub）
 - [[organizations/nist|NIST]] — 推廣 SWID，EO 14028 下訂定指引（來源 2 份，stub）
 - [[organizations/ntia|NTIA]] — 發布 SBOM 最低要素、提出 VEX（來源 3 份，stub）
 - [[organizations/mitre|MITRE]] — 營運 CVE 系統（來源 2 份，stub）
@@ -56,7 +57,8 @@ updated: 2026-10-12
 - [[practices/dotnet-sbom-syft-grype|.NET 專案以 syft + grype 產生 SBOM 並掃描]] — 掃發佈產物、指定名稱版本、注意 purl 限制，並列 sbom-tool、cyclonedx-dotnet 替代方案（來源 6 份，draft）
 - [[practices/dotnet-sbom-cyclonedx-trivy|.NET 以 dotnet-CycloneDX + trivy 產生 SBOM 並掃描（含前端 JS 合併）]] — 使用者腳本：弱點與授權報告、retire 掃前端、cyclonedx-cli 合併（來源 2 份，draft）
 - [[practices/npm-sbom-cyclonedx-trivy|npm 前端以 cyclonedx-npm + trivy 產生 SBOM 並掃描]] — 使用者腳本：只讀 lockfile、排除 dev 依賴，弱點與授權報告（來源 1 份，draft）
-- [[practices/sbom-lifecycle-and-ci|SBOM 生命週期與 CI/CD 整合]] — 六步流程、兩個迴圈、CI gate 建議與導入檢核清單（作者建議，衍生自簡報，draft）
+- [[practices/sbom-lifecycle-and-ci|SBOM 生命週期與 CI/CD 整合]] — 六步流程、兩個迴圈、CI gate 建議與導入檢核清單（作者建議，衍生自簡報＋業界指南 1 份，draft）
+- [[practices/vulnerability-triage-and-vex|漏洞研判與 VEX 發布流程]] — 8 步發布流程、9 道研判問題、VEX 狀態證據、保留證據與常見缺口（來源 2 份，draft）
 
 ## 來源摘要 Sources
 - [[sources/2026-10-01-openssf-sbom-naming|OpenSSF：SBOM 命名與目錄慣例]] — 業界指引
@@ -87,6 +89,8 @@ updated: 2026-10-12
 - [[sources/2026-10-07-dotnet-sbom-scan-script|腳本：dotnet-sbom-scan.sh]] — 使用者自撰（dotnet-CycloneDX + trivy）
 - [[sources/2026-10-07-dotnet-js-sbom-scan-script|腳本：dotnet-js-sbom-scan.sh]] — 使用者自撰（加 retire 與合併）
 - [[sources/2026-10-12-npm-sbom-scan-script|腳本：npm-sbom-scan.sh]] — 使用者自撰（cyclonedx-npm + trivy，前端 npm）；並記錄兩支舊腳本的 `--list-all-pkgs=false` 變更
+- [[sources/2026-11-03-securebydesign-sbom-vex-workflows|Secure by Design Handbook：SBOM & VEX Workflows]] — 業界實務指南（含 CRA 二手轉述）
+- [[sources/2026-11-03-sbomse-what-is-vex|sbom.se：What is VEX?]] — 業界教學文章（Bitfront AB，2025-02）
 
 ## 分析 Analyses
 - [[analyses/syft-grype-vexctl-workflow|syft → grype → vexctl 使用順序]] — 三工具串接的 mermaid 活動流程圖（來源 3 份，draft）

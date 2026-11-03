@@ -2,9 +2,9 @@
 title: SBOM 生命週期與 CI/CD 整合
 type: practice
 tags: [sbom, practice, ci-cd, vex, lifecycle]
-sources: [wiki/analyses/sbom-practice-talk.marp.md]
+sources: [wiki/analyses/sbom-practice-talk.marp.md, raw/industry/SBOM & VEX Workflows.md]
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-03
 status: draft
 ---
 
@@ -26,7 +26,9 @@ status: draft
 5. **VEX 研判**：人工逐一判斷，以 [[tools/vexctl]] 或 trivy `--vex` 套用；見 [[concepts/vex]]。
 6. **保存／發布**：命名見 [[practices/sbom-file-naming]]；簽章尚未做。[^s]
 
-**兩個迴圈**：① 程式碼變更 → 重產 SBOM；② 弱點 DB 更新 → 對既有 SBOM 重掃（舊 SBOM 不必重產）。[^s]
+**兩個迴圈**：① 程式碼變更 → 重產 SBOM；② 弱點 DB 更新 → 對既有 SBOM 重掃（舊 SBOM 不必重產）。[^s] 業界指南也要求發布後持續重掃，不只在建置時掃。[^h]
+
+> 以業界指南為依據的完整版（8 步發布流程、研判問題、證據清單）見 [[practices/vulnerability-triage-and-vex]]。
 
 ## 角色與責任
 未定（個人實踐）。
@@ -50,10 +52,11 @@ status: draft
 - 腳本參數化後放進 CI
 
 ## 常見陷阱
-掃錯範圍造成重複計算；「0 漏洞」被誤讀為安全；VEX 欄位拼錯會被讀取端默默丟棄。見 [[practices/dotnet-sbom-syft-grype]]、[[concepts/vex]]。
+掃錯範圍造成重複計算；SBOM 只存在會過期的 CI artifact，支援期內就被刪除[^h]；「0 漏洞」被誤讀為安全；VEX 欄位拼錯會被讀取端默默丟棄。見 [[practices/dotnet-sbom-syft-grype]]、[[concepts/vex]]。
 
 ## 業界案例
 （尚無）
 
 ## 參考來源
 [^s]: [[analyses/sbom-practice-talk.marp|簡報：SBOM 實戰分享]]（使用者自製，本庫衍生品）
+[^h]: [[sources/2026-11-03-securebydesign-sbom-vex-workflows]]

@@ -3,9 +3,9 @@ title: OpenSSF
 type: organization
 tags: [sbom, openssf]
 aliases: [Open Source Security Foundation, OpenSSF SBOM Catalog]
-sources: [raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md]
+sources: [raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/What is VEX.md]
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-11-03
 status: stub
 ---
 
@@ -20,9 +20,10 @@ status: stub
 ## 在 SBOM 生態中的角色
 - 發布 [[practices/sbom-file-naming|SBOM 命名慣例]]。[^s1]
 - 轉載 CISA 的 [[concepts/sbom-types|SBOM 類型]]文件。[^s2]
+- OpenVEX（獨立、精簡的 [[concepts/vex|VEX]] 格式）是 OpenSSF 的專案。[^s3]
 
 ## 主要產出
-- [[practices/sbom-file-naming]]、[[concepts/sbom-types]]
+- [[practices/sbom-file-naming]]、[[concepts/sbom-types]]、OpenVEX（CLI 見 [[tools/vexctl]]）
 
 ## 實務注意事項
 轉載頁未標示作者與日期，引用時以原始 CISA 頁為準。
@@ -33,3 +34,4 @@ status: stub
 ## 參考來源
 [^s1]: [[sources/2026-10-01-openssf-sbom-naming]]
 [^s2]: [[sources/2026-10-01-openssf-sbom-types]]
+[^s3]: [[sources/2026-11-03-sbomse-what-is-vex]]

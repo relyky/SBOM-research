@@ -2,9 +2,9 @@
 title: SBOM 研究總覽
 type: overview
 tags: [sbom, overview]
-sources: [raw/standards/CycloneDX BOM Standard.md, raw/tools/CycloneDX CLI tool for SBOM.md, raw/tools/sbom-tools.md, raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/cyclonedx-npm.md, raw/tools/dotnet-sbom-scan.sh, raw/tools/dotnet-js-sbom-scan.sh, raw/tools/npm-sbom-scan.sh, raw/tools/RetireJS - repo.md, raw/tools/Retire.js - website.md, raw/tools/vexctl.md, raw/tools/Microsoft sbom-tool.md, raw/tools/Overview of Anchore Open Source tools.md, raw/tools/Syft.md, raw/tools/Grype.md, raw/tools/SBOM Generation.md, raw/tools/Vulnerability Scanning.md, raw/tools/syft-grype.sample.md, raw/standards/Software Identification (SWID) Tagging.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md, raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md]
+sources: [raw/standards/CycloneDX BOM Standard.md, raw/tools/CycloneDX CLI tool for SBOM.md, raw/tools/sbom-tools.md, raw/tools/clonedx-dotnet.md, raw/tools/clonedx-dotnet-practice.md, raw/tools/cyclonedx-npm.md, raw/tools/dotnet-sbom-scan.sh, raw/tools/dotnet-js-sbom-scan.sh, raw/tools/npm-sbom-scan.sh, raw/tools/RetireJS - repo.md, raw/tools/Retire.js - website.md, raw/tools/vexctl.md, raw/tools/Microsoft sbom-tool.md, raw/tools/Overview of Anchore Open Source tools.md, raw/tools/Syft.md, raw/tools/Grype.md, raw/tools/SBOM Generation.md, raw/tools/Vulnerability Scanning.md, raw/tools/syft-grype.sample.md, raw/standards/Software Identification (SWID) Tagging.md, raw/industry/What Is VEX(Vulnerability Exploitability eXchange).md, raw/industry/軟體物料清單SBOM發展趨勢.md, raw/industry/Common Vulnerabilities and Exposures.md, raw/industry/公共漏洞和暴露 - 維基百科，自由的百科全書.md, raw/industry/Software supply chain.md, raw/industry/Types of Software Bill of Material (SBOM) Documents.md, raw/industry/Best Practices for Naming and Directory Conventions for SBOMs (Software Bill of Materials) in Open Source Projects.md, raw/industry/SBOM & VEX Workflows.md, raw/industry/What is VEX.md]
 created: 2026-10-01
-updated: 2026-10-12
+updated: 2026-11-03
 status: draft
 ---
 
@@ -22,7 +22,7 @@ status: draft
 7. 在 Python / .NET / React(TypeScript) / 容器專案中，如何在 CI/CD 自動產出並管理 SBOM？
 
 ## 目前論點
-（截至 2026-10，基於 28 份來源（NIST SWID 頁、Anchore 官方文件、Microsoft sbom-tool、vexctl、CycloneDX 組織首頁、cyclonedx-dotnet／cyclonedx-npm／cyclonedx-cli／sbom-tools README 為一手，另含 5 份使用者實測／腳本，其餘為業界／二手），尚無法規與規格一手資料，論點僅為初步。）
+（截至 2026-11，基於 30 份來源（NIST SWID 頁、Anchore 官方文件、Microsoft sbom-tool、vexctl、CycloneDX 組織首頁、cyclonedx-dotnet／cyclonedx-npm／cyclonedx-cli／sbom-tools README 為一手，另含 5 份使用者實測／腳本，其餘為業界／二手），尚無法規與規格一手資料，論點僅為初步。）
 
 1. **SBOM 是供應鏈透明度的基礎，但非完整性保證**：它列出元件，需搭配 provenance／簽章才能驗證完整性。[^a]
 2. **類型決定用途**：CISA 定義 Design / Source / Build / Analyzed / Deployed / Runtime 六類，產生方式不同，涵蓋與限制各異。見 [[concepts/sbom-types]]。[^b]
@@ -41,6 +41,12 @@ status: draft
 
 13. **SBOM 要持續運作，而非一次性產出**：每次建置重產，並在弱點 DB 更新後對既有 SBOM 重掃；CI gate 可擋「新增高風險弱點且無 VEX」「授權不核可」「格式驗證失敗」。此為使用者簡報的作者建議，非標準要求，多數指令未實測；簽章尚未實作。見 [[practices/sbom-lifecycle-and-ci]]。[^t]
 
+14. **VEX 是研判結論的載體，不是掃描附屬品**：業界指南把 SBOM、VEX、Advisory、Vulnerability log 分工，主張每個發布版本都要綁定 SBOM、發布後持續重掃、研判結論附理由，並把證據保留到支援期結束；VEX 有四種狀態，`not_affected` 須附理由、`affected` 須附建議行動。兩份來源對 `not_affected` 是否涵蓋「元件不存在」說法不一，已於 [[concepts/vex]] 標示。見 [[practices/vulnerability-triage-and-vex]]。[^u1][^u2]
+
+15. **歐盟 CRA 已明文要求 SBOM（二手轉述）**：據業界指南，CRA 附件 I 第 II 部分第 1 點要求製造商以 SBOM 辨識並記錄元件，但未限定 VEX 為唯一溝通格式；韌體與 bootloader 也應列入。條文原文、生效時程待蒐集。見 [[regulations/eu-cra]]。[^u1]
+
+[^u1]: [[sources/2026-11-03-securebydesign-sbom-vex-workflows]]
+[^u2]: [[sources/2026-11-03-sbomse-what-is-vex]]
 [^t]: [[analyses/sbom-practice-talk.marp|簡報：SBOM 實戰分享]]（本庫衍生品，非獨立來源）
 [^s1]: [[sources/2026-10-07-dotnet-sbom-scan-script]]
 [^s2]: [[sources/2026-10-07-dotnet-js-sbom-scan-script]]
@@ -74,7 +80,9 @@ status: draft
 **政策與法規**（→ `raw/regulations/`）
 - [ ] 美國行政命令 EO 14028（Improving the Nation's Cybersecurity）
 - [ ] CISA SBOM 相關指引（最低要素更新——含據稱 2026-07-29 的 v2.1、SBOM 類型、VEX 文件）
-- [ ] 歐盟 Cyber Resilience Act（CRA）SBOM 相關條文
+- [ ] 歐盟 Cyber Resilience Act（CRA）SBOM 相關條文（已有二手轉述與 [[regulations/eu-cra]] stub，原文尚缺）
+- [ ] CISA《Minimum Requirements for VEX》、CSAF VEX profile、OpenVEX 規格
+- [ ] BSI TR-03183-1／-2、ETSI EN 304 623（草案）
 - [ ] FDA 醫療器材上市前網路安全指引
 - [ ] 台灣相關規範（如資安署/數位發展部、金管會之供應鏈資安要求）
 
